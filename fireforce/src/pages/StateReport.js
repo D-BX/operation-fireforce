@@ -21,12 +21,50 @@ function StateReport() {
     const fetchData = async () => {
       setLoading(true);
       
+      // Determine land impact based on state
+      const normalizeStateCode = (s) => {
+        if (!s) return null;
+        const lower = s.toLowerCase();
+        if (lower.length === 2) return lower.toUpperCase();
+        const nameToCode = {
+          'iowa': 'IA',
+          'oregon': 'OR',
+          'north-carolina': 'NC',
+          'arizona': 'AZ',
+          'south-carolina': 'SC',
+          'virginia': 'VA',
+          'new-mexico': 'NM',
+          'wisconsin': 'WI',
+          'utah': 'UT',
+        };
+        const cleaned = lower.replace(/\s+/g, '-');
+        return nameToCode[cleaned] || null;
+      };
+
+      const landImpactByCode = {
+        IA: 3,
+        OR: 1,
+        NC: 1,
+        AZ: 1,
+        SC: 1,
+        VA: 1,
+        NM: 1,
+        WI: 1,
+        UT: 2,
+      };
+
+      const stateCode = normalizeStateCode(state);
+      const computedLandImpact =
+        stateCode && landImpactByCode[stateCode] !== undefined
+          ? landImpactByCode[stateCode]
+          : 0;
+
       // Set report data immediately
       setReportData({
         state: state,
         powerIncrease: 15.5,
         waterIncrease: 8.2,
-        landImpact: 12.3,
+        landImpact: computedLandImpact,
         carbonFootprint: 8.7,
         dataCenters: 23,
         projectedGrowth: 45.2,
@@ -168,9 +206,9 @@ function StateReport() {
                   <p className="metric-description">Average increase in water costs</p>
                 </div>
                 <div className="metric-card card">
-                  <h3>Land Impact</h3>
-                  <div className="metric-value">{reportData.landImpact}%</div>
-                  <p className="metric-description">Land use change from data centers</p>
+                  <h3>Hyperscale Data Centers</h3>
+                  <div className="metric-value">{reportData.landImpact}</div>
+                  <p className="metric-description">Active hyperscale data centers in the state</p>
                 </div>
                 <div className="metric-card card">
                   <h3>Data Centers</h3>
