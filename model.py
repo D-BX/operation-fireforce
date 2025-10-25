@@ -9,7 +9,7 @@ from sklearn.linear_model import LinearRegression
 # -------------------------
 
 # Load housing CSV once
-housing_df = pd.read_csv("processed_states_hyperscale.csv")
+housing_df = pd.read_csv("csv-generation/house/processed_states_hyperscale.csv")
 
 # Simplified CPI data
 cpi_data = {
