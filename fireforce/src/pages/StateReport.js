@@ -221,7 +221,7 @@ function StateReport() {
                 >
                   <h3>Power Bill Impact</h3>
                   <div className="metric-value">{reportData.powerIncrease}%</div>
-                  <p className="metric-description">Average increase in electricity costs</p>
+                  <p className="metric-description">Predicted increase in electricity costs</p>
                 </div>
                 <div
                   className="metric-card card clickable"
@@ -229,7 +229,7 @@ function StateReport() {
                 >
                   <h3>Water Bill Impact</h3>
                   <div className="metric-value">{(Math.max(0, reportData.powerIncrease - (Math.random() * 4.5 + 0.5))).toFixed(2)}%</div>
-                  <p className="metric-description">Average increase in water costs</p>
+                  <p className="metric-description">Predicted increase in water costs</p>
                 </div>
                 <div
                   className="metric-card card clickable"
