@@ -829,6 +829,13 @@ a:hover {
   border: 1px solid var(--border-color);
 }
 
+/*DAYO*/
+.news-section pre {
+  font-family: 'Times New Roman', 'Times', serif;
+  padding: 2rem;
+  border: 1px solid var(--border-color);
+}
+
 .news-list {
   display: flex;
   flex-direction: column;

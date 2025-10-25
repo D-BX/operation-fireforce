@@ -13,94 +13,92 @@ function StateReport() {
   const [question, setQuestion] = useState('');
   const [news, setNews] = useState([]);
   const [representatives, setRepresentatives] = useState([]);
+  const [error, setError] = useState(null);
+
 
   useEffect(() => {
-    // Fetch or calculate report data for this state
-    // Call your linear regression model here
-    // Call Gemini API for news/legislation
-
-    const fetchNews = async () => {
-        setLoading(true);
-        const result = await getStateInfo(state);
-      
-        if (result.success) {
-            setNewsData(result.data);
-            setError(null);
-        } else {
-            setError(result.error);
-        }
-        setLoading(false);
-    };
-
+  const fetchData = async () => {
+    setLoading(true);
     
-    // Simulated data loading
-    setTimeout(() => {
-      setReportData({
-        state: state,
-        powerIncrease: 15.5,
-        waterIncrease: 8.2,
-        landImpact: 12.3,
-        carbonFootprint: 8.7,
-        dataCenters: 23,
-        projectedGrowth: 45.2,
-        waterUsage: 2.3,
-        energyUsage: 18.7
-      });
-      
-      // Simulated news data
-      setNews([
-        {
-          id: 1,
-          title: "New AI Data Center Approved Despite Water Concerns",
-          source: "Local News",
-          date: "2024-01-15",
-          summary: "City council approves new 500MW data center despite community concerns about water usage.",
-          url: "#"
-        },
-        {
-          id: 2,
-          title: "State Legislature Considers Data Center Water Regulations",
-          source: "State Politics",
-          date: "2024-01-12",
-          summary: "New bill would require data centers to report water usage and implement conservation measures.",
-          url: "#"
-        },
-        {
-          id: 3,
-          title: "Environmental Groups Sue Over Data Center Impact",
-          source: "Environmental News",
-          date: "2024-01-10",
-          summary: "Lawsuit filed against major tech company for environmental impact of new data center.",
-          url: "#"
-        }
-      ]);
+    // Set report data immediately
+    setReportData({
+      state: state,
+      powerIncrease: 15.5,
+      waterIncrease: 8.2,
+      landImpact: 12.3,
+      carbonFootprint: 8.7,
+      dataCenters: 23,
+      projectedGrowth: 45.2,
+      waterUsage: 2.3,
+      energyUsage: 18.7
+    });
+    
+    // Set simulated news data
+    setNews([
+      {
+        id: 1,
+        title: "New AI Data Center Approved Despite Water Concerns",
+        source: "Local News",
+        date: "2024-01-15",
+        summary: "City council approves new 500MW data center despite community concerns about water usage.",
+        url: "#"
+      },
+      {
+        id: 2,
+        title: "State Legislature Considers Data Center Water Regulations",
+        source: "State Politics",
+        date: "2024-01-12",
+        summary: "New bill would require data centers to report water usage and implement conservation measures.",
+        url: "#"
+      },
+      {
+        id: 3,
+        title: "Environmental Groups Sue Over Data Center Impact",
+        source: "Environmental News",
+        date: "2024-01-10",
+        summary: "Lawsuit filed against major tech company for environmental impact of new data center.",
+        url: "#"
+      }
+    ]);
 
-      // Simulated representatives data
-      setRepresentatives([
-        {
-          name: "Sen. Jane Smith",
-          position: "State Senator",
-          district: "District 15",
-          phone: "(555) 123-4567",
-          email: "jane.smith@state.gov",
-          address: "123 Capitol St, Capital City, ST 12345",
-          party: "Democrat"
-        },
-        {
-          name: "Rep. John Doe",
-          position: "State Representative",
-          district: "District 42",
-          phone: "(555) 987-6543",
-          email: "john.doe@state.gov",
-          address: "456 State Ave, Capital City, ST 12345",
-          party: "Republican"
-        }
-      ]);
-      
-      setLoading(false);
-    }, 1000);
-    fetchNews();
-  }, [state]);
+    // Set representatives data
+    setRepresentatives([
+      {
+        name: "Sen. Jane Smith",
+        position: "State Senator",
+        district: "District 15",
+        phone: "(555) 123-4567",
+        email: "jane.smith@state.gov",
+        address: "123 Capitol St, Capital City, ST 12345",
+        party: "Democrat"
+      },
+      {
+        name: "Rep. John Doe",
+        position: "State Representative",
+        district: "District 42",
+        phone: "(555) 987-6543",
+        email: "john.doe@state.gov",
+        address: "456 State Ave, Capital City, ST 12345",
+        party: "Republican"
+      }
+    ]);
+    
+    // Fetch news from Gemini API
+    const result = await getStateInfo(state);
+    
+    if (result.success) {
+      setNewsData(result.data);
+      setError(null);
+    } else {
+      setError(result.error);
+    }
+    
+    // Set loading to false AFTER everything is done
+    setLoading(false);
+  };
+
+  fetchData();
+}, [state]);
 
   const handleGraphClick = (graphType) => {
     setSelectedGraph(graphType);
@@ -243,22 +241,22 @@ function StateReport() {
           {/* Sidebar */}
           <div className="sidebar">
             {/* News Section */}
-            <div className="news-section card">
-              <h3 className="sidebar-title">Latest News</h3>
-              <div className="news-list">
-                {news.map(article => (
-                  <div key={article.id} className="news-item">
-                    <h4 className="news-title">{article.title}</h4>
-                    <div className="news-meta">
-                      <span className="news-source">{article.source}</span>
-                      <span className="news-date">{article.date}</span>
-                    </div>
-                    <p className="news-summary">{article.summary}</p>
-                    <a href={article.url} className="news-link">Read More</a>
-                  </div>
-                ))}
-              </div>
-            </div>
+          {/* News Section */}
+<div className="news-section card">
+  <h3 className="sidebar-title">Latest News</h3>
+  <div className="news-articles">
+    {/* Show Gemini API results */}
+    {newsData && (
+      <div className="gemini-news">
+        <pre>{newsData}</pre>
+      </div>
+    )}
+    
+    {/* Show loading or error states */}
+    {!newsData && !error && <p>Loading news...</p>}
+    {error && <p className="error">Error loading news: {error}</p>}
+  </div>
+</div>
 
             {/* Representatives Section */}
             <div className="representatives-section card">
