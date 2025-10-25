@@ -28,6 +28,7 @@ function StateReport() {
     'utah': 44,
     'colorado': 60,
     'new mexico': 22,
+    'indiana' : 75
   };
 
   useEffect(() => {
