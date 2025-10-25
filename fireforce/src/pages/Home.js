@@ -28,7 +28,6 @@ function Home() {
 
   return (
     <div className="home-page">
-      {/* Hero Section */}
       <section className="hero">
         <div className="container">
           <div className="hero-content">
@@ -42,21 +41,23 @@ function Home() {
               <div className="stat-item">
                 <div className="stat-number">15.5%</div>
                 <div className="stat-label">Average Power Bill Increase</div>
+                <img src="/lights.gif" alt="Lights" width={200} height={150} />
               </div>
               <div className="stat-item">
                 <div className="stat-number">8.2%</div>
                 <div className="stat-label">Average Water Bill Increase</div>
+                <img src="/tapwater.gif" alt="Tap Water" width={200} height={150} />
               </div>
               <div className="stat-item">
                 <div className="stat-number">2.3M</div>
                 <div className="stat-label">Gallons Water per Day</div>
+                <img src="/waterfall.gif" alt="Waterfall" width={300} height={150} />
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Mission Statement */}
       <section className="mission">
         <div className="container">
           <div className="mission-content">
@@ -87,7 +88,6 @@ function Home() {
         </div>
       </section>
 
-      {/* State Selector */}
       <section className="state-selector">
         <div className="container">
           <div className="selector-card card">
@@ -120,7 +120,6 @@ function Home() {
         </div>
       </section>
 
-      {/* Quick Actions */}
       <section className="quick-actions">
         <div className="container">
           <h2>Get Started</h2>
@@ -149,7 +148,6 @@ function Home() {
         </div>
       </section>
 
-      {/* Call to Action */}
       <section className="cta">
         <div className="container">
           <div className="cta-content">

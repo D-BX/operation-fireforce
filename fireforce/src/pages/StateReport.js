@@ -2,6 +2,7 @@
 import { useParams, useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { getStateInfo } from '../services/geminiService';
+import { getStateRepresentatives } from '../services/representativesService';
 
 function StateReport() {
   const { state } = useParams();
@@ -17,88 +18,94 @@ function StateReport() {
 
 
   useEffect(() => {
-  const fetchData = async () => {
-    setLoading(true);
-    
-    // Set report data immediately
-    setReportData({
-      state: state,
-      powerIncrease: 15.5,
-      waterIncrease: 8.2,
-      landImpact: 12.3,
-      carbonFootprint: 8.7,
-      dataCenters: 23,
-      projectedGrowth: 45.2,
-      waterUsage: 2.3,
-      energyUsage: 18.7
-    });
-    
-    // Set simulated news data
-    setNews([
-      {
-        id: 1,
-        title: "New AI Data Center Approved Despite Water Concerns",
-        source: "Local News",
-        date: "2024-01-15",
-        summary: "City council approves new 500MW data center despite community concerns about water usage.",
-        url: "#"
-      },
-      {
-        id: 2,
-        title: "State Legislature Considers Data Center Water Regulations",
-        source: "State Politics",
-        date: "2024-01-12",
-        summary: "New bill would require data centers to report water usage and implement conservation measures.",
-        url: "#"
-      },
-      {
-        id: 3,
-        title: "Environmental Groups Sue Over Data Center Impact",
-        source: "Environmental News",
-        date: "2024-01-10",
-        summary: "Lawsuit filed against major tech company for environmental impact of new data center.",
-        url: "#"
-      }
-    ]);
+    const fetchData = async () => {
+      setLoading(true);
+      
+      // Set report data immediately
+      setReportData({
+        state: state,
+        powerIncrease: 15.5,
+        waterIncrease: 8.2,
+        landImpact: 12.3,
+        carbonFootprint: 8.7,
+        dataCenters: 23,
+        projectedGrowth: 45.2,
+        waterUsage: 2.3,
+        energyUsage: 18.7
+      });
+      
+      // Set simulated news data
+      setNews([
+        {
+          id: 1,
+          title: "New AI Data Center Approved Despite Water Concerns",
+          source: "Local News",
+          date: "2024-01-15",
+          summary: "City council approves new 500MW data center despite community concerns about water usage.",
+          url: "#"
+        },
+        {
+          id: 2,
+          title: "State Legislature Considers Data Center Water Regulations",
+          source: "State Politics",
+          date: "2024-01-12",
+          summary: "New bill would require data centers to report water usage and implement conservation measures.",
+          url: "#"
+        },
+        {
+          id: 3,
+          title: "Environmental Groups Sue Over Data Center Impact",
+          source: "Environmental News",
+          date: "2024-01-10",
+          summary: "Lawsuit filed against major tech company for environmental impact of new data center.",
+          url: "#"
+        }
+      ]);
 
-    // Set representatives data
-    setRepresentatives([
-      {
-        name: "Sen. Jane Smith",
-        position: "State Senator",
-        district: "District 15",
-        phone: "(555) 123-4567",
-        email: "jane.smith@state.gov",
-        address: "123 Capitol St, Capital City, ST 12345",
-        party: "Democrat"
-      },
-      {
-        name: "Rep. John Doe",
-        position: "State Representative",
-        district: "District 42",
-        phone: "(555) 987-6543",
-        email: "john.doe@state.gov",
-        address: "456 State Ave, Capital City, ST 12345",
-        party: "Republican"
+      // Fetch real representatives data
+      const representativesResult = await getStateRepresentatives(state);
+      if (representativesResult.success) {
+        setRepresentatives(representativesResult.data);
+      } else {
+        // Fallback to default data if API fails
+        setRepresentatives([
+          {
+            name: "Sen. Jane Smith",
+            position: "U.S. Senator",
+            district: state,
+            phone: "(202) 224-0000",
+            email: "senator@smith.senate.gov",
+            address: "123 Senate Office Building, Washington, DC 20510",
+            party: "Democrat"
+          },
+          {
+            name: "Rep. John Doe",
+            position: "U.S. Representative",
+            district: `${state} District`,
+            phone: "(202) 225-0000",
+            email: "rep@doe.house.gov",
+            address: "456 House Office Building, Washington, DC 20515",
+            party: "Republican"
+          }
+        ]);
       }
-    ]);
-    
-    // Fetch news from Gemini API
-    const result = await getStateInfo(state);
-    
-    if (result.success) {
-      setNewsData(result.data);
-      setError(null);
-    } else {
-      setError(result.error);
-    }
-    
-    // Set loading to false AFTER everything is done
-    setLoading(false);
-  };
+      
+      // Fetch news from Gemini API
+      const result = await getStateInfo(state);
+      
+      if (result.success) {
+        setNewsData(result.data);
+        setError(null);
+      } else {
+        setError(result.error);
+      }
+      
+      // Set loading to false AFTER everything is done
+      setLoading(false);
+    };
 
-  fetchData();
-}, [state]);
+    fetchData();
+  }, [state]);
 
   const handleGraphClick = (graphType) => {
     setSelectedGraph(graphType);
@@ -107,7 +114,6 @@ function StateReport() {
 
   const handleQuestionSubmit = (e) => {
     e.preventDefault();
-    // Here you would integrate with your AI model to answer questions
     console.log(`Question about ${selectedGraph}: ${question}`);
     setQuestion('');
     setSelectedGraph(null);
@@ -147,9 +153,7 @@ function StateReport() {
         </div>
 
         <div className="report-layout">
-          {/* Main Content */}
           <div className="main-content">
-            {/* Key Metrics */}
             <section className="metrics-section">
               <h2>Key Impact Metrics</h2>
               <div className="metrics-grid grid grid-2">
@@ -176,7 +180,6 @@ function StateReport() {
               </div>
             </section>
 
-            {/* Interactive Graphs */}
             <section className="graphs-section">
               <h2>Interactive Data Visualizations</h2>
               <div className="graphs-grid grid grid-2">
@@ -185,8 +188,21 @@ function StateReport() {
                   onClick={() => handleGraphClick('water-usage')}
                 >
                   <h3>Water Usage Trends</h3>
-                  <div className="graph-placeholder">
-                    <p>Click to explore water usage data</p>
+                  <div className="graph-visualization">
+                    <div className="graph-bars">
+                      <div className="bar" style={{height: '60%'}}></div>
+                      <div className="bar" style={{height: '75%'}}></div>
+                      <div className="bar" style={{height: '85%'}}></div>
+                      <div className="bar" style={{height: '90%'}}></div>
+                      <div className="bar" style={{height: '95%'}}></div>
+                    </div>
+                    <div className="graph-labels">
+                      <span>2020</span>
+                      <span>2021</span>
+                      <span>2022</span>
+                      <span>2023</span>
+                      <span>2024</span>
+                    </div>
                   </div>
                 </div>
                 <div 
@@ -194,8 +210,29 @@ function StateReport() {
                   onClick={() => handleGraphClick('energy-consumption')}
                 >
                   <h3>Energy Consumption</h3>
-                  <div className="graph-placeholder">
-                    <p>Click to explore energy data</p>
+                  <div className="graph-visualization">
+                    <div className="graph-line">
+                      <svg viewBox="0 0 200 100" className="line-chart">
+                        <polyline
+                          fill="none"
+                          stroke="var(--color-blue)"
+                          strokeWidth="2"
+                          points="10,80 50,60 90,40 130,30 170,20"
+                        />
+                        <circle cx="10" cy="80" r="3" fill="var(--color-blue)"/>
+                        <circle cx="50" cy="60" r="3" fill="var(--color-blue)"/>
+                        <circle cx="90" cy="40" r="3" fill="var(--color-blue)"/>
+                        <circle cx="130" cy="30" r="3" fill="var(--color-blue)"/>
+                        <circle cx="170" cy="20" r="3" fill="var(--color-blue)"/>
+                      </svg>
+                    </div>
+                    <div className="graph-labels">
+                      <span>Jan</span>
+                      <span>Mar</span>
+                      <span>Jun</span>
+                      <span>Sep</span>
+                      <span>Dec</span>
+                    </div>
                   </div>
                 </div>
                 <div 
@@ -203,8 +240,26 @@ function StateReport() {
                   onClick={() => handleGraphClick('cost-impact')}
                 >
                   <h3>Cost Impact Analysis</h3>
-                  <div className="graph-placeholder">
-                    <p>Click to explore cost data</p>
+                  <div className="graph-visualization">
+                    <div className="pie-chart">
+                      <div className="pie-slice power" style={{transform: 'rotate(0deg)'}}></div>
+                      <div className="pie-slice water" style={{transform: 'rotate(120deg)'}}></div>
+                      <div className="pie-slice other" style={{transform: 'rotate(240deg)'}}></div>
+                    </div>
+                    <div className="pie-legend">
+                      <div className="legend-item">
+                        <div className="legend-color power"></div>
+                        <span>Power (60%)</span>
+                      </div>
+                      <div className="legend-item">
+                        <div className="legend-color water"></div>
+                        <span>Water (30%)</span>
+                      </div>
+                      <div className="legend-item">
+                        <div className="legend-color other"></div>
+                        <span>Other (10%)</span>
+                      </div>
+                    </div>
                   </div>
                 </div>
                 <div 
@@ -212,14 +267,21 @@ function StateReport() {
                   onClick={() => handleGraphClick('growth-projection')}
                 >
                   <h3>Growth Projections</h3>
-                  <div className="graph-placeholder">
-                    <p>Click to explore growth data</p>
+                  <div className="graph-visualization">
+                    <div className="projection-chart">
+                      <div className="current-line"></div>
+                      <div className="projection-line"></div>
+                      <div className="projection-area"></div>
+                    </div>
+                    <div className="projection-labels">
+                      <span>Current</span>
+                      <span>Projected</span>
+                    </div>
                   </div>
                 </div>
               </div>
             </section>
 
-            {/* Action Buttons */}
             <section className="action-section">
               <div className="action-buttons">
                 <button 
@@ -238,27 +300,46 @@ function StateReport() {
             </section>
           </div>
 
-          {/* Sidebar */}
           <div className="sidebar">
-            {/* News Section */}
-          {/* News Section */}
-<div className="news-section card">
-  <h3 className="sidebar-title">Latest News</h3>
-  <div className="news-articles">
-    {/* Show Gemini API results */}
-    {newsData && (
-      <div className="gemini-news">
-        <pre>{newsData}</pre>
-      </div>
-    )}
-    
-    {/* Show loading or error states */}
-    {!newsData && !error && <p>Loading news...</p>}
-    {error && <p className="error">Error loading news: {error}</p>}
-  </div>
-</div>
+            <div className="news-section card">
+              <h3 className="sidebar-title">Latest News</h3>
+              <div className="news-articles">
+                {/* Show Gemini API results */}
+                {newsData && (
+                  <div className="gemini-news">
+                    <div className="parsed-news">
+                      {newsData.split('\n').filter(line => line.trim()).map((line, index) => (
+                        <div key={index} className={`news-line ${index % 2 === 0 ? 'news-title' : 'news-summary'}`}>
+                          {line.trim()}
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+                
+                {/* Show loading or error states */}
+                {!newsData && !error && <p>Loading news...</p>}
+                {error && <p className="error">Error loading news: {error}</p>}
+                
+                {/* Show static news as fallback */}
+                {!newsData && !error && (
+                  <div className="news-list">
+                    {news.map(article => (
+                      <div key={article.id} className="news-item">
+                        <h4 className="news-title">{article.title}</h4>
+                        <div className="news-meta">
+                          <span className="news-source">{article.source}</span>
+                          <span className="news-date">{article.date}</span>
+                        </div>
+                        <p className="news-summary">{article.summary}</p>
+                        <a href={article.url} className="news-link">Read More</a>
+                      </div>
+                    ))}
+                  </div>
+                )}
+              </div>
+            </div>
 
-            {/* Representatives Section */}
             <div className="representatives-section card">
               <h3 className="sidebar-title">Your Representatives</h3>
               <div className="representatives-list">
@@ -296,7 +377,6 @@ function StateReport() {
         </div>
       </div>
 
-      {/* Graph Question Modal */}
       {selectedGraph && (
         <div className="modal-overlay" onClick={() => setSelectedGraph(null)}>
           <div className="modal-content" onClick={(e) => e.stopPropagation()}>
@@ -309,27 +389,111 @@ function StateReport() {
                 ×
               </button>
             </div>
-            <form onSubmit={handleQuestionSubmit} className="question-form">
-              <div className="form-group">
-                <label className="form-label">Your Question:</label>
-                <textarea
-                  className="form-input"
-                  value={question}
-                  onChange={(e) => setQuestion(e.target.value)}
-                  placeholder="Ask anything about this data..."
-                  rows="4"
-                  required
-                />
+            <div className="modal-body">
+              <div className="modal-graph">
+                {selectedGraph === 'water-usage' && (
+                  <div className="graph-visualization">
+                    <div className="graph-bars">
+                      <div className="bar" style={{height: '60%'}}></div>
+                      <div className="bar" style={{height: '75%'}}></div>
+                      <div className="bar" style={{height: '85%'}}></div>
+                      <div className="bar" style={{height: '90%'}}></div>
+                      <div className="bar" style={{height: '95%'}}></div>
+                    </div>
+                    <div className="graph-labels">
+                      <span>2020</span>
+                      <span>2021</span>
+                      <span>2022</span>
+                      <span>2023</span>
+                      <span>2024</span>
+                    </div>
+                  </div>
+                )}
+                {selectedGraph === 'energy-consumption' && (
+                  <div className="graph-visualization">
+                    <div className="graph-line">
+                      <svg viewBox="0 0 200 100" className="line-chart">
+                        <polyline
+                          fill="none"
+                          stroke="var(--color-blue)"
+                          strokeWidth="2"
+                          points="10,80 50,60 90,40 130,30 170,20"
+                        />
+                        <circle cx="10" cy="80" r="3" fill="var(--color-blue)"/>
+                        <circle cx="50" cy="60" r="3" fill="var(--color-blue)"/>
+                        <circle cx="90" cy="40" r="3" fill="var(--color-blue)"/>
+                        <circle cx="130" cy="30" r="3" fill="var(--color-blue)"/>
+                        <circle cx="170" cy="20" r="3" fill="var(--color-blue)"/>
+                      </svg>
+                    </div>
+                    <div className="graph-labels">
+                      <span>Jan</span>
+                      <span>Mar</span>
+                      <span>Jun</span>
+                      <span>Sep</span>
+                      <span>Dec</span>
+                    </div>
+                  </div>
+                )}
+                {selectedGraph === 'cost-impact' && (
+                  <div className="graph-visualization">
+                    <div className="pie-chart">
+                      <div className="pie-slice power" style={{transform: 'rotate(0deg)'}}></div>
+                      <div className="pie-slice water" style={{transform: 'rotate(120deg)'}}></div>
+                      <div className="pie-slice other" style={{transform: 'rotate(240deg)'}}></div>
+                    </div>
+                    <div className="pie-legend">
+                      <div className="legend-item">
+                        <div className="legend-color power"></div>
+                        <span>Power (60%)</span>
+                      </div>
+                      <div className="legend-item">
+                        <div className="legend-color water"></div>
+                        <span>Water (30%)</span>
+                      </div>
+                      <div className="legend-item">
+                        <div className="legend-color other"></div>
+                        <span>Other (10%)</span>
+                      </div>
+                    </div>
+                  </div>
+                )}
+                {selectedGraph === 'growth-projection' && (
+                  <div className="graph-visualization">
+                    <div className="projection-chart">
+                      <div className="current-line"></div>
+                      <div className="projection-line"></div>
+                      <div className="projection-area"></div>
+                    </div>
+                    <div className="projection-labels">
+                      <span>Current</span>
+                      <span>Projected</span>
+                    </div>
+                  </div>
+                )}
               </div>
-              <div className="modal-actions">
-                <button type="button" className="btn btn-secondary" onClick={() => setSelectedGraph(null)}>
-                  Cancel
-                </button>
-                <button type="submit" className="btn btn-primary">
-                  Ask Question
-                </button>
-              </div>
-            </form>
+              <form onSubmit={handleQuestionSubmit} className="question-form">
+                <div className="form-group">
+                  <label className="form-label">Your Question:</label>
+                  <textarea
+                    className="form-input"
+                    value={question}
+                    onChange={(e) => setQuestion(e.target.value)}
+                    placeholder="Ask anything about this data..."
+                    rows="4"
+                    required
+                  />
+                </div>
+                <div className="modal-actions">
+                  <button type="button" className="btn btn-secondary" onClick={() => setSelectedGraph(null)}>
+                    Cancel
+                  </button>
+                  <button type="submit" className="btn btn-primary">
+                    Ask Question
+                  </button>
+                </div>
+              </form>
+            </div>
           </div>
         </div>
       )}

@@ -1,4 +1,3 @@
-/* Minimal Design System - Inspired by Steve Jobs Archive */
 :root {
   --primary-color: #000000;
   --primary-light: #333333;
@@ -21,6 +20,13 @@
   --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05);
   --shadow-md: 0 2px 8px rgba(0, 0, 0, 0.08);
   --shadow-lg: 0 4px 16px rgba(0, 0, 0, 0.12);
+  
+  --color-red: #dc2626;
+  --color-red-light: #fef2f2;
+  --color-blue: #2563eb;
+  --color-blue-light: #eff6ff;
+  --color-green: #16a34a;
+  --color-green-light: #f0fdf4;
   
   --font-primary: 'Times New Roman', 'Times', serif;
   --font-secondary: 'Helvetica Neue', 'Arial', sans-serif;
@@ -168,14 +174,15 @@ a:hover {
 }
 
 .btn-primary {
-  background: var(--text-primary);
+  background: var(--color-blue);
   color: var(--bg-primary);
-  border-color: var(--text-primary);
+  border-color: var(--color-blue);
 }
 
 .btn-primary:hover {
   background: var(--bg-primary);
-  color: var(--text-primary);
+  color: var(--color-blue);
+  border-color: var(--color-blue);
 }
 
 .btn-secondary {
@@ -727,7 +734,7 @@ a:hover {
   font-family: var(--font-primary);
   font-size: 3rem;
   font-weight: 400;
-  color: var(--text-primary);
+  color: var(--color-blue);
   margin-bottom: 0.5rem;
   letter-spacing: -0.02em;
 }
@@ -781,21 +788,134 @@ a:hover {
   letter-spacing: -0.01em;
 }
 
-.graph-placeholder {
+.graph-visualization {
   padding: 2rem 0;
   border-top: 1px solid var(--border-color);
   transition: all 0.2s ease;
 }
 
-.graph-card:hover .graph-placeholder {
+.graph-card:hover .graph-visualization {
   border-color: var(--text-primary);
 }
 
-.graph-placeholder p {
+.graph-bars {
+  display: flex;
+  align-items: end;
+  gap: 0.5rem;
+  height: 120px;
+  margin-bottom: 1rem;
+}
+
+.bar {
+  flex: 1;
+  background: var(--color-blue);
+  min-height: 20px;
+  transition: all 0.3s ease;
+}
+
+.bar:hover {
+  background: var(--color-red);
+}
+
+.graph-line {
+  height: 120px;
+  margin-bottom: 1rem;
+}
+
+.line-chart {
+  width: 100%;
+  height: 100%;
+}
+
+.pie-chart {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  position: relative;
+  margin: 0 auto 1rem;
+  background: conic-gradient(
+    var(--color-blue) 0deg 216deg,
+    var(--color-red) 216deg 288deg,
+    var(--color-green) 288deg 360deg
+  );
+}
+
+.pie-legend {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.8rem;
+}
+
+.legend-color {
+  width: 12px;
+  height: 12px;
+  border-radius: 2px;
+}
+
+.legend-color.power {
+  background: var(--color-blue);
+}
+
+.legend-color.water {
+  background: var(--color-red);
+}
+
+.legend-color.other {
+  background: var(--color-green);
+}
+
+.projection-chart {
+  height: 120px;
+  position: relative;
+  margin-bottom: 1rem;
+}
+
+.current-line {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--color-blue);
+}
+
+.projection-line {
+  position: absolute;
+  top: 30%;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--color-red);
+}
+
+.projection-area {
+  position: absolute;
+  top: 30%;
+  left: 0;
+  right: 0;
+  height: 40%;
+  background: linear-gradient(to bottom, var(--color-red-light), transparent);
+}
+
+.projection-labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8rem;
   color: var(--text-secondary);
-  font-size: 0.9rem;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
+}
+
+.graph-labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8rem;
+  color: var(--text-secondary);
 }
 
 /* Action Section */
@@ -897,6 +1017,61 @@ a:hover {
   color: var(--text-secondary);
 }
 
+.gemini-news {
+  padding: 1rem 0;
+}
+
+.gemini-news pre {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  font-family: var(--font-secondary);
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: var(--text-primary);
+  background: var(--bg-secondary);
+  padding: 1rem;
+  border-radius: var(--border-radius);
+  border: 1px solid var(--border-color);
+  max-height: 400px;
+  overflow-y: auto;
+  margin: 0;
+  text-align: left;
+}
+
+.parsed-news {
+  background: var(--bg-secondary);
+  padding: 1rem;
+  border-radius: var(--border-radius);
+  border: 1px solid var(--border-color);
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.news-line {
+  margin-bottom: 0.75rem;
+  font-family: var(--font-secondary);
+  line-height: 1.5;
+}
+
+.news-line:last-child {
+  margin-bottom: 0;
+}
+
+.news-line.news-title {
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.news-line.news-summary {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  margin-bottom: 1rem;
+  padding-left: 0.5rem;
+  border-left: 2px solid var(--border-color);
+}
+
 /* Representatives Section */
 .representatives-section {
   padding: 2rem;
@@ -948,11 +1123,15 @@ a:hover {
 }
 
 .rep-party.democrat {
-  color: var(--text-primary);
+  color: var(--color-blue);
+  border-color: var(--color-blue);
+  background: var(--color-blue-light);
 }
 
 .rep-party.republican {
-  color: var(--text-primary);
+  color: var(--color-red);
+  border-color: var(--color-red);
+  background: var(--color-red-light);
 }
 
 .rep-position {
@@ -997,12 +1176,31 @@ a:hover {
 
 .modal-content {
   background: var(--bg-primary);
-  border-radius: var(--border-radius-lg);
-  box-shadow: var(--shadow-xl);
-  max-width: 500px;
+  border: 1px solid var(--border-color);
+  max-width: 800px;
   width: 100%;
   max-height: 90vh;
   overflow-y: auto;
+}
+
+.modal-body {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  padding: 2rem;
+  min-height: 400px;
+}
+
+.modal-graph {
+  border: 1px solid var(--border-color);
+  padding: 1.5rem;
+  border-radius: var(--border-radius);
+  background: var(--bg-secondary);
+}
+
+.modal-graph .graph-visualization {
+  border-top: none;
+  padding: 0;
 }
 
 .modal-header {
@@ -1037,13 +1235,39 @@ a:hover {
 
 .question-form {
   padding: 1.5rem;
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  background: var(--bg-primary);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.question-form .form-group {
+  margin-bottom: 0;
+}
+
+.question-form .form-label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.question-form .form-input {
+  min-height: 100px;
+  resize: vertical;
+  font-family: var(--font-secondary);
+  line-height: 1.5;
 }
 
 .modal-actions {
   display: flex;
   gap: 1rem;
   justify-content: flex-end;
-  margin-top: 1.5rem;
+  margin-top: 0;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border-color);
 }
 
 /* Responsive Design for State Report */
@@ -1055,6 +1279,39 @@ a:hover {
   
   .sidebar {
     order: -1;
+  }
+  
+  .modal-body {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .modal-content {
+    max-width: 95vw;
+  }
+}
+
+@media (max-width: 768px) {
+  .modal-body {
+    padding: 1rem;
+    gap: 1rem;
+  }
+  
+  .modal-graph {
+    padding: 1rem;
+  }
+  
+  .question-form {
+    padding: 1rem;
+  }
+  
+  .modal-actions {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .modal-actions .btn {
+    width: 100%;
   }
 }
 

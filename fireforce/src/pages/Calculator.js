@@ -43,13 +43,11 @@ function Calculator() {
     e.preventDefault();
     setLoading(true);
     
-    // Simulate calculation delay
     setTimeout(() => {
       const powerBill = parseFloat(inputs.currentPowerBill) || 0;
       const waterBill = parseFloat(inputs.currentWaterBill) || 0;
       const householdSize = parseInt(inputs.householdSize) || 1;
       
-      // Simulated calculation based on state and inputs
       const stateMultipliers = {
         california: { power: 0.18, water: 0.12 },
         texas: { power: 0.15, water: 0.08 },
@@ -83,10 +81,10 @@ function Calculator() {
         perPersonImpact: totalIncrease / householdSize,
         state: inputs.state,
         dataCenterImpact: {
-          waterUsage: 2.3, // million gallons per day
-          energyUsage: 18.7, // GWh per year
-          landUse: 12.3, // acres
-          carbonFootprint: 8.7 // tons CO2 per year
+          waterUsage: 2.3,
+          energyUsage: 18.7,
+          landUse: 12.3,
+          carbonFootprint: 8.7
         }
       });
       
@@ -111,7 +109,6 @@ function Calculator() {
   return (
     <div className="calculator-page">
       <div className="container">
-        {/* Header */}
         <div className="calculator-header">
           <button className="btn btn-secondary" onClick={() => navigate('/')}>
             ← Back to Home
@@ -122,7 +119,6 @@ function Calculator() {
           </p>
         </div>
 
-        {/* Tab Navigation */}
         <div className="tab-navigation">
           <button 
             className={`tab-button ${activeTab === 'input' ? 'active' : ''}`}
@@ -140,7 +136,6 @@ function Calculator() {
           )}
         </div>
 
-        {/* Input Tab */}
         {activeTab === 'input' && (
           <div className="calculator-content">
             <div className="input-methods">
@@ -164,21 +159,21 @@ function Calculator() {
                   <h3>Location Information</h3>
                   <div className="form-group">
                     <label className="form-label">State</label>
-                    <select 
+          <select 
                       className="form-select"
-                      value={inputs.state}
-                      onChange={(e) => setInputs({...inputs, state: e.target.value})}
-                      required
-                    >
+            value={inputs.state}
+            onChange={(e) => setInputs({...inputs, state: e.target.value})}
+            required
+          >
                       <option value="">Choose your state...</option>
                       {states.map(state => (
                         <option key={state.value} value={state.value}>
                           {state.label}
                         </option>
                       ))}
-                    </select>
+          </select>
                   </div>
-                </div>
+        </div>
 
                 {inputs.uploadMethod === 'manual' ? (
                   <div className="form-section">
@@ -186,22 +181,22 @@ function Calculator() {
                     <div className="form-row">
                       <div className="form-group">
                         <label className="form-label">Monthly Power Bill ($)</label>
-                        <input 
-                          type="number" 
+          <input 
+            type="number" 
                           className="form-input"
-                          value={inputs.currentPowerBill}
-                          onChange={(e) => setInputs({...inputs, currentPowerBill: e.target.value})}
+            value={inputs.currentPowerBill}
+            onChange={(e) => setInputs({...inputs, currentPowerBill: e.target.value})}
                           placeholder="150.00"
-                          required
-                        />
-                      </div>
+            required
+          />
+        </div>
                       <div className="form-group">
                         <label className="form-label">Monthly Water Bill ($)</label>
-                        <input 
-                          type="number" 
+          <input 
+            type="number" 
                           className="form-input"
-                          value={inputs.currentWaterBill}
-                          onChange={(e) => setInputs({...inputs, currentWaterBill: e.target.value})}
+            value={inputs.currentWaterBill}
+            onChange={(e) => setInputs({...inputs, currentWaterBill: e.target.value})}
                           placeholder="80.00"
                           required
                         />
@@ -216,9 +211,9 @@ function Calculator() {
                         onChange={(e) => setInputs({...inputs, householdSize: e.target.value})}
                         placeholder="4"
                         min="1"
-                        required
-                      />
-                    </div>
+            required
+          />
+        </div>
                   </div>
                 ) : (
                   <div className="form-section">
@@ -265,16 +260,16 @@ function Calculator() {
                     </div>
                     <div className="form-group">
                       <label className="form-label">Household Size</label>
-                      <input 
-                        type="number" 
+          <input 
+            type="number" 
                         className="form-input"
-                        value={inputs.householdSize}
-                        onChange={(e) => setInputs({...inputs, householdSize: e.target.value})}
+            value={inputs.householdSize}
+            onChange={(e) => setInputs({...inputs, householdSize: e.target.value})}
                         placeholder="4"
                         min="1"
-                        required
-                      />
-                    </div>
+            required
+          />
+        </div>
                   </div>
                 )}
 
@@ -296,12 +291,11 @@ function Calculator() {
                     )}
                   </button>
                 </div>
-              </form>
+      </form>
             </div>
           </div>
         )}
 
-        {/* Results Tab */}
         {activeTab === 'results' && results && (
           <div className="results-content">
             <div className="results-header">
@@ -310,7 +304,6 @@ function Calculator() {
             </div>
 
             <div className="results-grid">
-              {/* Current vs Projected Bills */}
               <div className="results-card card">
                 <h3>Bill Impact Analysis</h3>
                 <div className="bill-comparison">
@@ -329,7 +322,6 @@ function Calculator() {
                 </div>
               </div>
 
-              {/* Annual Impact */}
               <div className="results-card card">
                 <h3>Annual Impact</h3>
                 <div className="annual-impact">
@@ -344,7 +336,6 @@ function Calculator() {
                 </div>
               </div>
 
-              {/* Breakdown */}
               <div className="results-card card">
                 <h3>Cost Breakdown</h3>
                 <div className="breakdown">
@@ -359,7 +350,6 @@ function Calculator() {
                 </div>
               </div>
 
-              {/* Environmental Impact */}
               <div className="results-card card">
                 <h3>Environmental Impact</h3>
                 <div className="environmental-stats">

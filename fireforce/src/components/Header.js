@@ -5,7 +5,7 @@ function Header() {
   return (
     <header className="header">
       <nav>
-        <Link to="/" className="logo">AI Impact Calculator</Link>
+        <Link to="/" className="logo">Data Center Impacts</Link>
         <div className="nav-links">
           <Link to="/">Home</Link>
           <Link to="/calculator">Calculator</Link>
