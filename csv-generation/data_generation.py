@@ -1,73 +1,135 @@
 import pandas as pd
-import io
-import random
 import numpy as np
+import random
 
-# --- Data Generation Configuration ---
+# --- This script learns from your real data to generate a larger, realistic dataset ---
 
-# Cities known for major data center clusters
-hub_cities = {
-"VA": "Ashburn",
-"OR": "The Dalles",
-"IA": "Council Bluffs",
-"OH": "New Albany",
-"AZ": "Mesa",
-"GA": "Atlanta",
-"NV": "Reno",
-"TX": "San Antonio",
-"WA": "Quincy",
-"NC": "Forest City",
-"OR_2": "Prineville", # Use alias to have multiple hubs in one state
-"AZ_2": "Chandler"
+# --- 1. LOAD REAL DATA TO LEARN STATISTICAL PROPERTIES ---
+try:
+    summary_df = pd.read_csv('all_isos_summary_statistics.csv')
+    print("✅ Successfully loaded 'all_isos_summary_statistics.csv' to learn from.")
+except FileNotFoundError:
+    print("❌ ERROR: 'all_isos_summary_statistics.csv' not found.")
+    print("Please run 'process_all.py' script first to generate this file.")
+    exit()
+
+# --- 2. CONFIGURATION & MAPPING ---
+# UPDATED: Added a "state" key for each city.
+CITY_CONFIG = {
+    "Ashburn":      {"state": "VA", "iso": "PJM",   "is_hub": 1, "population": 50000},
+    "Manassas":     {"state": "VA", "iso": "PJM",   "is_hub": 1, "population": 42000},
+    "Philadelphia": {"state": "PA", "iso": "PJM",   "is_hub": 0, "population": 1600000},
+    "Baltimore":    {"state": "MD", "iso": "PJM",   "is_hub": 0, "population": 580000},
+    "Cleveland":    {"state": "OH", "iso": "PJM",   "is_hub": 0, "population": 370000},
+    "Richmond":     {"state": "VA", "iso": "PJM",   "is_hub": 0, "population": 230000},
+    "San Antonio":  {"state": "TX", "iso": "ERCOT", "is_hub": 1, "population": 1450000},
+    "Dallas":       {"state": "TX", "iso": "ERCOT", "is_hub": 1, "population": 1300000},
+    "Houston":      {"state": "TX", "iso": "ERCOT", "is_hub": 0, "population": 2300000},
+    "Austin":       {"state": "TX", "iso": "ERCOT", "is_hub": 0, "population": 970000},
+    "Santa Clara":  {"state": "CA", "iso": "CAISO", "is_hub": 1, "population": 130000},
+    "Los Angeles":  {"state": "CA", "iso": "CAISO", "is_hub": 1, "population": 3900000},
+    "San Diego":    {"state": "CA", "iso": "CAISO", "is_hub": 0, "population": 1400000},
+    "Sacramento":   {"state": "CA", "iso": "CAISO", "is_hub": 0, "population": 525000},
+    "Minneapolis":  {"state": "MN", "iso": "MISO",  "is_hub": 1, "population": 430000},
+    "Des Moines":   {"state": "IA", "iso": "MISO",  "is_hub": 1, "population": 215000},
+    "Detroit":      {"state": "MI", "iso": "MISO",  "is_hub": 0, "population": 640000},
+    "Indianapolis": {"state": "IN", "iso": "MISO",  "is_hub": 0, "population": 890000},
+    "Boston":       {"state": "MA", "iso": "ISONE", "is_hub": 1, "population": 675000},
+    "Providence":   {"state": "RI", "iso": "ISONE", "is_hub": 0, "population": 190000},
+    "Hartford":     {"state": "CT", "iso": "ISONE", "is_hub": 0, "population": 120000},
 }
 
-# A large sample of other US cities to act as the "non-hub" group
-non_hub_cities = {
-"AL": "Birmingham", "AK": "Anchorage", "AZ_3": "Tucson", "AR": "Little Rock", "CA": "Los Angeles", "CO": "Denver",
-"CT": "Bridgeport", "DE": "Wilmington", "FL": "Miami", "GA_2": "Savannah", "HI": "Honolulu", "ID": "Boise",
-"IL": "Chicago", "IN": "Indianapolis", "IA_2": "Des Moines", "KS": "Wichita", "KY": "Louisville", "LA": "New Orleans",
-"ME": "Portland", "MD": "Baltimore", "MA": "Boston", "MI": "Detroit", "MN": "Minneapolis", "MS": "Jackson",
-"MO": "Kansas City", "MT": "Billings", "NE": "Omaha", "NV_2": "Las Vegas", "NH": "Manchester", "NJ": "Newark",
-"NM": "Albuquerque", "NY": "New York", "NC_2": "Charlotte", "ND": "Fargo", "OH_2": "Cleveland", "OK": "Oklahoma City",
-"OR_3": "Portland", "PA": "Philadelphia", "RI": "Providence", "SC": "Charleston", "SD": "Sioux Falls", "TN": "Nashville",
-"TX_2": "Houston", "UT": "Salt Lake City", "VT": "Burlington", "VA_2": "Richmond", "WA_2": "Seattle", "WV": "Charleston",
-"WI": "Milwaukee", "WY": "Cheyenne"
-}
+# --- 3. CALCULATE THE "STATISTICAL SIGNATURES" ---
+# (This part remains the same)
+hub_status_map = {city: details['is_hub'] for city, details in CITY_CONFIG.items()}
+summary_df['City'] = summary_df['location'].apply(lambda x: next((city for city in hub_status_map if city.upper() in x.upper()), None))
+summary_df.dropna(subset=['City'], inplace=True)
+summary_df['is_hub'] = summary_df['City'].map(hub_status_map)
 
-# Generate 2000 data points
-data_records = []
-for _ in range(2000):
-    # 20% chance of being a data center hub to create an imbalanced, realistic dataset
-    is_hub = random.random() < 0.20
-    if is_hub:
-        state_key, city = random.choice(list(hub_cities.items()))
-        state = state_key.split('_')[0]
-        # Higher rate change for hubs (mean 4.5%, std dev 0.8%)
-        rate_change = max(0.01, np.random.normal(0.045, 0.008))
-    else:
-        state_key, city = random.choice(list(non_hub_cities.items()))
-        state = state_key.split('_')[0]
-        # Lower, typical rate change for non-hubs (mean 1.8%, std dev 0.5%)
-        rate_change = max(0.005, np.random.normal(0.018, 0.005))
-    data_records.append({
-        "State": state,
-        "City": city,
-        "Elec_Rate_Change_Pct": round(rate_change, 5)
+hub_data = summary_df[summary_df['is_hub'] == 1]
+non_hub_data = summary_df[summary_df['is_hub'] == 0]
+
+hub_stats = {'price_mean': 45, 'price_std': 15, 'vol_mean': 50, 'vol_std': 25}
+non_hub_stats = {'price_mean': 35, 'price_std': 8, 'vol_mean': 25, 'vol_std': 10}
+
+if not hub_data.empty:
+    hub_stats.update({
+        'price_mean': hub_data['Avg_Price'].mean(), 'price_std': hub_data['Avg_Price'].std(),
+        'vol_mean': hub_data['Price_Std_Dev'].mean(), 'vol_std': hub_data['Price_Std_Dev'].std()
     })
+    print("\nLearned Hub Signature:", hub_stats)
 
-# Create a pandas DataFrame
-df = pd.DataFrame(data_records)
+if not non_hub_data.empty:
+    non_hub_stats.update({
+        'price_mean': non_hub_data['Avg_Price'].mean(), 'price_std': non_hub_data['Avg_Price'].std(),
+        'vol_mean': non_hub_data['Price_Std_Dev'].mean(), 'vol_std': non_hub_data['Price_Std_Dev'].std()
+    })
+    print("Learned Non-Hub Signature:", non_hub_stats)
 
-# Shuffle the dataframe to mix the hubs and non-hubs
-df = df.sample(frac=1).reset_index(drop=True)
+# --- 4. GENERATE 10,000 REALISTIC DATA POINTS ---
+print("\nGenerating 10,000 data points with realistic usage and pricing...")
+data_records = []
+hub_cities_list = [city for city, details in CITY_CONFIG.items() if details['is_hub'] == 1]
+non_hub_cities_list = [city for city, details in CITY_CONFIG.items() if details['is_hub'] == 0]
 
-# --- THIS IS THE FIX ---
-# Provide a filename (e.g., 'hackathon_dataset.csv') to save the file to your device.
-# The `index=False` part prevents pandas from writing the row numbers as a column.
-df.to_csv('hackathon_dataset.csv', index=False)
+for _ in range(10000):
+    is_hub_point = random.random() < 0.3
+    city_name = random.choice(hub_cities_list if is_hub_point else non_hub_cities_list)
+    config = CITY_CONFIG[city_name]
+    
+    # Get all config details
+    population = config['population']
+    iso = config['iso']
+    state = config['state'] # Get the state
 
-# --- Display confirmation and data ---
-print(f"Generated a dataset with {len(df)} records.\n")
-print("✅ Successfully saved the dataset to 'hackathon_dataset.csv'")
-print("\n--- First 20 rows of the dataset ---")
-print(df.head(20))
+    # Calculate Current Power Usage
+    base_kw_per_person = 1.3
+    if iso in ["ERCOT", "CAISO"]:
+        climate_factor = np.random.uniform(0.1, 0.4)
+    elif iso in ["MISO", "ISONE"]:
+        climate_factor = np.random.uniform(0.0, 0.2)
+    else: # PJM
+        climate_factor = np.random.uniform(0.0, 0.3)
+    total_kw_per_person = base_kw_per_person + climate_factor
+    current_power_usage_mw = (population * total_kw_per_person) / 1000
+    
+    # Use learned statistics for market data
+    stats_to_use = hub_stats if is_hub_point else non_hub_stats
+    avg_lmp = max(20, np.random.normal(stats_to_use['price_mean'], stats_to_use['price_std']))
+    lmp_volatility = max(5, np.random.normal(stats_to_use['vol_mean'], stats_to_use['vol_std']))
+    high_price_days = int(max(0, np.random.normal(avg_lmp / 15, lmp_volatility / 20)))
+  
+    # Calculate the final Elec_Rate_Change_Pct
+    rate_change = 0.015 + (avg_lmp / 2000) + (lmp_volatility / 1500) + (high_price_days / 500)
+    if config['is_hub']:
+        rate_change += 0.01 + (lmp_volatility / 800)
+    rate_change += np.random.normal(0, 0.003)
+
+    # Add the record with the new 'State' column
+    data_records.append({
+        "City": city_name,
+        "State": state, # Add state to the output row
+        "ISO": iso,
+        "Population": population,
+        "Current_Power_Usage_MW": round(current_power_usage_mw, 2),
+        "Power_Usage_per_Capita_kW": round(total_kw_per_person, 4),
+        "Is_Hub": config['is_hub'],
+        "Avg_LMP_USD_per_MWh": round(avg_lmp, 2),
+        "LMP_Volatility": round(lmp_volatility, 2),
+        "High_Price_Days": high_price_days,
+        "Elec_Rate_Change_Pct": round(max(0.005, rate_change), 5)
+    })
+  
+# --- 5. Create and Save Final Training DataFrame ---
+final_df = pd.DataFrame(data_records)
+# Reorder columns to include the new 'State' column
+final_df = final_df[[
+    "City", "State", "ISO", "Population", "Current_Power_Usage_MW", "Power_Usage_per_Capita_kW", 
+    "Is_Hub", "Avg_LMP_USD_per_MWh", "LMP_Volatility", "High_Price_Days", "Elec_Rate_Change_Pct"
+]]
+final_df = final_df.sample(frac=1).reset_index(drop=True)
+final_df.to_csv('final_dataset.csv', index=False)
+  
+print("\n✅ Successfully generated 'final_training_dataset_10000.csv' with State information.")
+print("\n--- First 15 rows of the final training dataset ---")
+print(final_df.head(15))
