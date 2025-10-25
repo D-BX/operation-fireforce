@@ -13,17 +13,27 @@ function Home() {
     }
   };
 
+  // const states = [
+  //   { value: 'california', label: 'California' },
+  //   { value: 'texas', label: 'Texas' },
+  //   { value: 'virginia', label: 'Virginia' },
+  //   { value: 'washington', label: 'Washington' },
+  //   { value: 'oregon', label: 'Oregon' },
+  //   { value: 'nevada', label: 'Nevada' },
+  //   { value: 'arizona', label: 'Arizona' },
+  //   { value: 'utah', label: 'Utah' },
+  //   { value: 'colorado', label: 'Colorado' },
+  //   { value: 'new-mexico', label: 'New Mexico' },
+  // ];
+
   const states = [
-    { value: 'california', label: 'California' },
-    { value: 'texas', label: 'Texas' },
-    { value: 'virginia', label: 'Virginia' },
-    { value: 'washington', label: 'Washington' },
-    { value: 'oregon', label: 'Oregon' },
-    { value: 'nevada', label: 'Nevada' },
-    { value: 'arizona', label: 'Arizona' },
-    { value: 'utah', label: 'Utah' },
-    { value: 'colorado', label: 'Colorado' },
-    { value: 'new-mexico', label: 'New Mexico' },
+      { value: 'virginia', label: 'Virginia' }, // VA
+      { value: 'michigan', label: 'Michigan' }, // MI
+      { value: 'georgia', label: 'Georgia' }, // GA
+      { value: 'texas', label: 'Texas' }, // TX
+      { value: 'indiana', label: 'Indiana' }, // IN
+      { value: 'minnesota', label: 'Minnesota' }, // MN
+      { value: 'california', label: 'California' } // CA
   ];
 
   return (
