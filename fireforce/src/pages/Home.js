@@ -32,10 +32,12 @@ function Home() {
         <div className="container">
           <div className="hero-content">
             <h1 className="hero-title">
-              The Hidden Cost of AI Data Centers
+              The True Cost of AI Data Centers
             </h1>
             <p className="hero-subtitle">
-              Understanding the environmental and economic impact of artificial intelligence infrastructure on local communities.
+              Are you informed of what the construction of local AI data centers might mean for you? 
+              AI data centers consume vast amounts of resources, and this can affect the price of goods for local residents.
+              Enter your state of residence below to learn what AI data centers mean for your bills and quality of life.
             </p>
             <div className="hero-stats">
               <div className="stat-item">
