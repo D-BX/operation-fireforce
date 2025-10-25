@@ -121,57 +121,6 @@ function Home() {
           </div>
         </div>
       </section>
-
-      <section className="quick-actions">
-        <div className="container">
-          <h2>Get Started</h2>
-          <div className="actions-grid grid grid-2">
-            <div className="action-card card">
-              <h3>Personal Calculator</h3>
-              <p>Upload your utility bills and see how AI data centers could impact your specific costs</p>
-              <button 
-                className="btn btn-secondary"
-                onClick={() => navigate('/calculator')}
-              >
-                Try Calculator
-              </button>
-            </div>
-            <div className="action-card card">
-              <h3>Stay Informed</h3>
-              <p>Get the latest news and legislation updates about AI data center impacts in your area</p>
-              <button 
-                className="btn btn-secondary"
-                onClick={() => navigate('/report/california')}
-              >
-                View News
-              </button>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="cta">
-        <div className="container">
-          <div className="cta-content">
-            <h2>Ready to Make a Difference?</h2>
-            <p>Join thousands of concerned citizens working to ensure AI development happens sustainably</p>
-            <div className="cta-buttons">
-              <button 
-                className="btn btn-primary btn-lg"
-                onClick={() => navigate('/calculator')}
-              >
-                Calculate Your Impact
-              </button>
-              <button 
-                className="btn btn-secondary btn-lg"
-                onClick={() => navigate('/report/california')}
-              >
-                Explore State Reports
-              </button>
-            </div>
-          </div>
-        </div>
-      </section>
     </div>
   );
 }

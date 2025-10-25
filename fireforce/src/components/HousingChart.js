@@ -15,7 +15,7 @@ function HousingChart({ state, currentPrice = 300000 }) {
 
       const stateCode = getStateCode(state);
 
-      const historyResult = await apiService.getHousingHistory(stateCode);
+      const historyResult = await apiService.getHousingHistory(stateCode, currentPrice);
       if (historyResult.success) {
         setHousingData(historyResult.data);
       } else {
@@ -76,15 +76,15 @@ function HousingChart({ state, currentPrice = 300000 }) {
   return (
     <div className="housing-chart-container">
       <div className="housing-chart card">
-        <h3>Housing Price History - {getStateCode(state)}</h3>
+        <h3>Housing Price Predictions (2025-2030) - {getStateCode(state)}</h3>
 
         <div className="chart-wrapper">
           <div className="line-chart-container">
             <svg viewBox="0 0 400 200" className="housing-line-chart">
               <defs>
                 <linearGradient id="priceGradient" x1="0%" y1="0%" x2="0%" y2="100%">
-                  <stop offset="0%" stopColor="var(--color-blue)" stopOpacity="0.3" />
-                  <stop offset="100%" stopColor="var(--color-blue)" stopOpacity="0.05" />
+                  <stop offset="0%" stopColor="var(--color-red)" stopOpacity="0.3" />
+                  <stop offset="100%" stopColor="var(--color-red)" stopOpacity="0.05" />
                 </linearGradient>
               </defs>
 
@@ -103,7 +103,7 @@ function HousingChart({ state, currentPrice = 300000 }) {
 
                   <polyline
                     fill="none"
-                    stroke="var(--color-blue)"
+                    stroke="var(--color-red)"
                     strokeWidth="3"
                     points={history.map((point, index) => {
                       const x = 50 + (index / (history.length - 1)) * 300;
@@ -117,27 +117,24 @@ function HousingChart({ state, currentPrice = 300000 }) {
                     const x = 50 + (index / (history.length - 1)) * 300;
                     const normalizedValue = (point.avg_home_value - minValue) / range;
                     const y = 170 - (normalizedValue * 140);
-                    const isPostAnnouncement = point.is_post_announcement === 1;
 
                     return (
                       <g key={index}>
                         <circle
                           cx={x}
                           cy={y}
-                          r={isPostAnnouncement ? "5" : "4"}
-                          fill={isPostAnnouncement ? "var(--color-red)" : "var(--color-blue)"}
+                          r="5"
+                          fill="var(--color-red)"
                         />
-                        {index % Math.ceil(history.length / 6) === 0 && (
-                          <text
-                            x={x}
-                            y="190"
-                            textAnchor="middle"
-                            fontSize="10"
-                            fill="var(--color-text-secondary)"
-                          >
-                            {point.year}
-                          </text>
-                        )}
+                        <text
+                          x={x}
+                          y="190"
+                          textAnchor="middle"
+                          fontSize="10"
+                          fill="var(--color-text-secondary)"
+                        >
+                          {point.year}
+                        </text>
                       </g>
                     );
                   })}
@@ -151,12 +148,8 @@ function HousingChart({ state, currentPrice = 300000 }) {
 
           <div className="chart-legend">
             <div className="legend-item">
-              <div className="legend-color" style={{ backgroundColor: 'var(--color-blue)' }}></div>
-              <span>Before Data Center Announcement</span>
-            </div>
-            <div className="legend-item">
               <div className="legend-color" style={{ backgroundColor: 'var(--color-red)' }}></div>
-              <span>After Data Center Announcement</span>
+              <span>Projected with Data Center Impact</span>
             </div>
           </div>
         </div>
@@ -164,17 +157,17 @@ function HousingChart({ state, currentPrice = 300000 }) {
         {history.length > 0 && (
           <div className="chart-stats">
             <div className="stat-box">
-              <div className="stat-label">Lowest Price</div>
+              <div className="stat-label">Starting Price (2025)</div>
               <div className="stat-value">{formatCurrency(minValue)}</div>
               <div className="stat-year">{history[0].year}</div>
             </div>
             <div className="stat-box">
-              <div className="stat-label">Highest Price</div>
+              <div className="stat-label">Projected Price (2030)</div>
               <div className="stat-value">{formatCurrency(maxValue)}</div>
               <div className="stat-year">{history[history.length - 1].year}</div>
             </div>
             <div className="stat-box">
-              <div className="stat-label">Total Increase</div>
+              <div className="stat-label">Total Projected Increase</div>
               <div className="stat-value">
                 {((maxValue - minValue) / minValue * 100).toFixed(1)}%
               </div>

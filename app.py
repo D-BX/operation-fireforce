@@ -155,23 +155,48 @@ def advanced_simulate_house_price(state, current_price, future_year=2026, base_y
     hyperscale_effect = get_hyperscale_pct_change(df_housing, state)
     return nominal_price, real_price, normal_growth, hyperscale_effect
 
-def get_state_housing_history(state):
+def get_state_housing_predictions(state, base_price=300000, base_year=2025):
+    """
+    Generate forward-looking housing predictions from 2025-2030
+    using the predictive model
+    """
     df_state = validate_data(df_housing, state)
-    df_state = df_state.copy()
-    df_state['Date'] = pd.to_datetime(df_state['Date'])
-    df_state = df_state.sort_values('Date')
 
-    history = []
-    for _, row in df_state.iterrows():
-        history.append({
-            'date': row['Date'].strftime('%Y-%m-%d'),
-            'year': int(row['Date'].year),
-            'avg_home_value': float(row['Avg_Home_Value']),
-            'pct_change': float(row['HomeValue_Pct_Change']) if pd.notna(row['HomeValue_Pct_Change']) else None,
-            'is_post_announcement': int(row['Is_Post_Announcement'])
+    # Get growth rates from the model
+    normal_growth = get_normal_growth_rate(df_housing, state)
+    hyperscale_effect = get_hyperscale_pct_change(df_housing, state)
+
+    # Generate predictions for years 2025-2030
+    predictions = []
+    for year in range(2025, 2031):
+        years_after = year - base_year
+
+        # Use the predictive model
+        nominal, real, _, _ = simple_simulate_house_price(
+            state, base_price, years_after=years_after, base_year=base_year
+        )
+
+        # Calculate year-over-year percentage change
+        if year == base_year:
+            pct_change = 0
+        else:
+            prev_nominal, _, _, _ = simple_simulate_house_price(
+                state, base_price, years_after=years_after-1, base_year=base_year
+            )
+            pct_change = ((nominal - prev_nominal) / prev_nominal) * 100
+
+        # All future years have data center impact
+        is_post_announcement = 1
+
+        predictions.append({
+            'date': f'{year}-01-01',
+            'year': year,
+            'avg_home_value': float(nominal),
+            'pct_change': float(pct_change),
+            'is_post_announcement': is_post_announcement
         })
 
-    return history
+    return predictions
 
 @app.route('/api/health', methods=['GET'])
 def health_check():
@@ -281,22 +306,27 @@ def predict_housing():
 
 @app.route('/api/housing/history', methods=['GET'])
 def housing_history():
+    """
+    Get housing predictions for 2025-2030 (forward-looking)
+    """
     try:
         if df_housing is None:
             return jsonify({'error': 'Housing data not available'}), 503
 
         state = request.args.get('state')
+        base_price = request.args.get('base_price', 300000, type=float)
+
         if not state:
             return jsonify({'error': 'state parameter is required'}), 400
 
         state = state.upper()
-        history = get_state_housing_history(state)
+        predictions = get_state_housing_predictions(state, base_price=base_price)
 
         return jsonify({
             'success': True,
             'data': {
                 'state': state,
-                'history': history
+                'history': predictions  # Keep key name for backwards compatibility
             }
         })
 
@@ -321,6 +351,226 @@ def get_states():
         })
     except Exception as e:
         return jsonify({'error': f'Internal server error: {str(e)}'}), 500
+
+STATE_NAME_TO_CODE = {
+    'california': 'CA',
+    'texas': 'TX',
+    'virginia': 'VA',
+    'washington': 'WA',
+    'oregon': 'OR',
+    'nevada': 'NV',
+    'arizona': 'AZ',
+    'utah': 'UT',
+    'colorado': 'CO',
+    'new-mexico': 'NM',
+    'new mexico': 'NM',
+    'louisiana': 'LA',
+    'illinois': 'IL',
+    'iowa': 'IA',
+    'north carolina': 'NC',
+    'south carolina': 'SC',
+    'wisconsin': 'WI'
+}
+
+@app.route('/api/calculator/predict', methods=['POST'])
+def calculator_predict():
+    """
+    Comprehensive calculator endpoint that predicts:
+    1. Electricity bill impact based on data center presence
+    2. Housing price increases due to hyperscale data centers
+    3. Environmental impact metrics
+    """
+    try:
+        data = request.json
+
+        # Extract input data
+        state_input = data.get('state', '').lower().strip()
+        current_power_bill = float(data.get('currentPowerBill', 0))
+        current_water_bill = float(data.get('currentWaterBill', 0))
+        household_size = int(data.get('householdSize', 1))
+        current_home_value = data.get('currentHomeValue')
+
+        # Validate inputs
+        if not state_input:
+            return jsonify({'error': 'State is required'}), 400
+        if current_power_bill <= 0:
+            return jsonify({'error': 'Current power bill must be greater than 0'}), 400
+        if household_size <= 0:
+            return jsonify({'error': 'Household size must be greater than 0'}), 400
+
+        # Convert state name to code
+        state_code = STATE_NAME_TO_CODE.get(state_input)
+        if not state_code:
+            state_code = state_input.upper()
+
+        # Calculate average household electricity consumption from bill
+        # Assume average US rate of ~14 cents/kWh as baseline
+        baseline_rate_cents = 14.0
+        estimated_monthly_kwh = (current_power_bill / baseline_rate_cents) * 100
+
+        # Predict electricity price impact using model
+        # Simulate a medium-sized data center impact (500 MW)
+        electricity_result = what_if_added_dc(
+            df_electricity,
+            beta_b,
+            names_b,
+            state_code=state_code,
+            added_power_mw=500,  # Medium data center
+            mode="assumption",
+            include_added_load_in_sales=True
+        )
+
+        # Get current observed price
+        try:
+            observed_price_cents = float(df_electricity.loc[
+                df_electricity.StateCode == state_code,
+                "AvgRetailPrice_cents_per_kWh"
+            ].iloc[0])
+        except:
+            observed_price_cents = baseline_rate_cents
+
+        # Calculate new electricity bills
+        new_price_cents = electricity_result['new_pred_c_per_kWh']
+        price_increase_pct = ((new_price_cents - observed_price_cents) / observed_price_cents) * 100
+
+        new_power_bill = current_power_bill * (1 + price_increase_pct / 100)
+        power_bill_increase = new_power_bill - current_power_bill
+
+        # Water bill impact (data centers use significant water for cooling)
+        # Estimate 15-25% increase in water costs due to infrastructure strain
+        water_increase_pct = 18.0
+        new_water_bill = current_water_bill * (1 + water_increase_pct / 100)
+        water_bill_increase = new_water_bill - current_water_bill
+
+        total_monthly_increase = power_bill_increase + water_bill_increase
+        annual_increase = total_monthly_increase * 12
+
+        # Housing price prediction (if home value provided)
+        housing_impact = None
+        if current_home_value and df_housing is not None:
+            try:
+                nominal, real, normal_growth, hyperscale_effect = simple_simulate_house_price(
+                    state_code,
+                    float(current_home_value),
+                    years_after=5,
+                    base_year=2025
+                )
+
+                housing_impact = {
+                    'current_value': current_home_value,
+                    'projected_value_5yr': nominal,
+                    'value_increase': nominal - current_home_value,
+                    'normal_growth_rate_pct': normal_growth * 100,
+                    'hyperscale_effect_pct': hyperscale_effect * 100,
+                    'total_growth_rate_pct': (normal_growth + hyperscale_effect) * 100,
+                    'explanation': f'Housing prices in {state_code} are projected to increase by {((nominal - current_home_value) / current_home_value * 100):.1f}% over 5 years due to data center development.'
+                }
+            except Exception as e:
+                print(f"Housing prediction error: {e}")
+                housing_impact = None
+
+        # Environmental impact metrics (for a typical hyperscale data center)
+        environmental_impact = {
+            'water_usage_gallons_per_day': 2_300_000,  # 2.3M gallons/day typical
+            'energy_usage_gwh_per_year': 18.7,  # GWh annually
+            'carbon_footprint_tons_per_year': 8_700,  # metric tons CO2
+            'land_use_acres': 12.3,
+            'explanation': 'These metrics represent the typical impact of a hyperscale data center in your region.'
+        }
+
+        # Compile comprehensive response
+        response = {
+            'success': True,
+            'data': {
+                'state': state_code,
+                'bills': {
+                    'current': {
+                        'power': current_power_bill,
+                        'water': current_water_bill,
+                        'total': current_power_bill + current_water_bill
+                    },
+                    'projected': {
+                        'power': new_power_bill,
+                        'water': new_water_bill,
+                        'total': new_power_bill + new_water_bill
+                    },
+                    'increase': {
+                        'power': power_bill_increase,
+                        'power_pct': price_increase_pct,
+                        'water': water_bill_increase,
+                        'water_pct': water_increase_pct,
+                        'total_monthly': total_monthly_increase,
+                        'total_annual': annual_increase
+                    }
+                },
+                'household': {
+                    'size': household_size,
+                    'per_person_monthly_impact': total_monthly_increase / household_size,
+                    'estimated_monthly_kwh': estimated_monthly_kwh
+                },
+                'electricity_model': {
+                    'observed_price_cents_per_kwh': observed_price_cents,
+                    'baseline_pred_cents_per_kwh': electricity_result['baseline_pred_c_per_kWh'],
+                    'new_pred_cents_per_kwh': new_price_cents,
+                    'delta_cents_per_kwh': electricity_result['delta_c_per_kWh'],
+                    'dc_share': electricity_result['dc_share_new']
+                },
+                'housing': housing_impact,
+                'environmental': environmental_impact,
+                'summary': {
+                    'total_annual_cost_increase': annual_increase,
+                    'five_year_cost_increase': annual_increase * 5,
+                    'impact_level': 'high' if annual_increase > 500 else 'moderate' if annual_increase > 200 else 'low'
+                }
+            }
+        }
+
+        return jsonify(response)
+
+    except ValueError as e:
+        return jsonify({'error': str(e)}), 400
+    except Exception as e:
+        print(f"Calculator error: {e}")
+        import traceback
+        traceback.print_exc()
+        return jsonify({'error': f'Internal server error: {str(e)}'}), 500
+
+@app.route('/api/calculator/parse-bill', methods=['POST'])
+def parse_bill():
+    """
+    Placeholder endpoint for bill image parsing.
+    In production, this would use OCR (Tesseract, Google Vision API, etc.)
+    For now, returns mock data based on file upload.
+    """
+    try:
+        if 'file' not in request.files:
+            return jsonify({'error': 'No file uploaded'}), 400
+
+        file = request.files['file']
+        bill_type = request.form.get('type', 'power')  # 'power' or 'water'
+
+        if file.filename == '':
+            return jsonify({'error': 'No file selected'}), 400
+
+        # TODO: Implement actual OCR parsing
+        # For now, return mock data
+        mock_data = {
+            'success': True,
+            'data': {
+                'bill_type': bill_type,
+                'amount': 150.00 if bill_type == 'power' else 80.00,
+                'usage': '850 kWh' if bill_type == 'power' else '5,000 gallons',
+                'billing_period': '2025-01-01 to 2025-01-31',
+                'parsed': True,
+                'confidence': 0.95,
+                'message': 'Bill parsing feature coming soon. Using default values for demo.'
+            }
+        }
+
+        return jsonify(mock_data)
+
+    except Exception as e:
+        return jsonify({'error': f'Error parsing bill: {str(e)}'}), 500
 
 if __name__ == '__main__':
     app.run(debug=True, port=5002, host='127.0.0.1')

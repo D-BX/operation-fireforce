@@ -77,12 +77,32 @@ const STATE_REPRESENTATIVES = {
       party: "Democrat"
     },
     {
-      name: "Sen. Kirsten Gillibrand", 
+      name: "Sen. Kirsten Gillibrand",
       position: "U.S. Senator",
       district: "New York",
       phone: "(202) 224-4451",
       email: "info@gillibrand.senate.gov",
       address: "478 Russell Senate Office Building, Washington, DC 20510",
+      party: "Democrat"
+    }
+  ],
+  washington: [
+    {
+      name: "Sen. Patty Murray",
+      position: "U.S. Senator",
+      district: "Washington",
+      phone: "(202) 224-2621",
+      email: "senator_murray@murray.senate.gov",
+      address: "154 Russell Senate Office Building, Washington, DC 20510",
+      party: "Democrat"
+    },
+    {
+      name: "Sen. Maria Cantwell",
+      position: "U.S. Senator",
+      district: "Washington",
+      phone: "(202) 224-3441",
+      email: "senator_cantwell@cantwell.senate.gov",
+      address: "511 Hart Senate Office Building, Washington, DC 20510",
       party: "Democrat"
     }
   ],

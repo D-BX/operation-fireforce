@@ -68,9 +68,9 @@ export const apiService = {
     }
   },
 
-  async getHousingHistory(state) {
+  async getHousingHistory(state, basePrice = 300000) {
     try {
-      const response = await fetch(`${API_BASE_URL}/housing/history?state=${encodeURIComponent(state)}`);
+      const response = await fetch(`${API_BASE_URL}/housing/history?state=${encodeURIComponent(state)}&base_price=${basePrice}`);
       const data = await response.json();
 
       if (!response.ok) {
