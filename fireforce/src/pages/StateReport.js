@@ -17,6 +17,18 @@ function StateReport() {
   const [representatives, setRepresentatives] = useState([]);
   const [error, setError] = useState(null);
 
+  const stateNumbers = {
+    'california': 320,
+    'texas': 397,
+    'virginia': 663,
+    'washington': 134,
+    'oregon': 137,
+    'nevada': 61,
+    'arizona': 162,
+    'utah': 44,
+    'colorado': 60,
+    'new mexico': 22,
+  };
 
   useEffect(() => {
     const fetchData = async () => {
@@ -213,7 +225,7 @@ function StateReport() {
                 </div>
                 <div className="metric-card card">
                   <h3>Data Centers</h3>
-                  <div className="metric-value">{reportData.dataCenters}</div>
+                  <div className="metric-value">{stateNumbers[`${state}`]}</div>
                   <p className="metric-description">Active data centers in state</p>
                 </div>
               </div>
