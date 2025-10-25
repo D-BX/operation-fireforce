@@ -186,7 +186,7 @@ function Calculator() {
   return (
     <div className="calculator-page">
       <div className="container">
-        <div className="calculator-header">
+        <div className="calculator-header pattern-overlay">
           <button className="btn btn-secondary" onClick={() => navigate('/')}>
             ← Back to Home
           </button>
@@ -194,6 +194,7 @@ function Calculator() {
           <p className="calculator-subtitle">
             Upload your bills or enter manually to see how AI data centers could affect your costs
           </p>
+          <div className="decorative-line"></div>
         </div>
 
         <div className="tab-navigation">
@@ -399,13 +400,14 @@ function Calculator() {
 
         {activeTab === 'results' && results && (
           <div className="results-content">
-            <div className="results-header">
+            <div className="results-header pattern-overlay">
               <h2>Your Personalized Impact Report</h2>
               <p>Based on your location and current bills</p>
+              <div className="decorative-line"></div>
             </div>
 
             <div className="results-grid">
-              <div className="results-card card">
+              <div className="results-card enhanced-card">
                 <h3>Bill Impact Analysis</h3>
                 <div className="bill-comparison">
                   <div className="bill-item">
@@ -419,7 +421,7 @@ function Calculator() {
                 </div>
               </div>
 
-              <div className="results-card card">
+              <div className="results-card enhanced-card">
                 <h3>Annual Impact</h3>
                 <div className="annual-impact">
                   <div className="impact-stat">
@@ -433,7 +435,7 @@ function Calculator() {
                 </div>
               </div>
 
-              <div className="results-card card">
+              <div className="results-card enhanced-card">
                 <h3>Cost Breakdown</h3>
                 <div className="breakdown">
                   <div className="breakdown-item">
@@ -447,7 +449,7 @@ function Calculator() {
                 </div>
               </div>
 
-              <div className="results-card card">
+              <div className="results-card enhanced-card">
                 <h3>Environmental Impact</h3>
                 <div className="environmental-stats">
                   <div className="env-stat">
@@ -502,7 +504,7 @@ function Calculator() {
               )}
 
               {results.electricityModel && (
-                <div className="results-card card">
+                <div className="results-card enhanced-card">
                   <h3>Technical Details</h3>
                   <div className="technical-details">
                     <div className="detail-item">
