@@ -7,7 +7,13 @@ import sys
 import os
 
 app = Flask(__name__)
-CORS(app)
+CORS(app, resources={
+    r"/api/*": {
+        "origins": "*",
+        "methods": ["GET", "POST", "OPTIONS"],
+        "allow_headers": ["Content-Type"]
+    }
+})
 
 sys.path.append(os.path.dirname(__file__))
 
@@ -317,4 +323,4 @@ def get_states():
         return jsonify({'error': f'Internal server error: {str(e)}'}), 500
 
 if __name__ == '__main__':
-    app.run(debug=True, port=5000)
+    app.run(debug=True, port=5002, host='127.0.0.1')
