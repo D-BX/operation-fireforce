@@ -1,0 +1,2001 @@
+State,City,Elec_Rate_Change_Pct
+AZ,Tucson,0.02092
+AR,Little Rock,0.01552
+ID,Boise,0.01214
+WA,Quincy,0.04094
+NC,Forest City,0.05875
+CA,Los Angeles,0.02289
+NV,Las Vegas,0.02035
+WV,Charleston,0.0189
+UT,Salt Lake City,0.01716
+TX,San Antonio,0.0368
+IA,Council Bluffs,0.04438
+GA,Savannah,0.01557
+ND,Fargo,0.00912
+NY,New York,0.01997
+OR,Prineville,0.0253
+VA,Ashburn,0.05029
+NC,Forest City,0.04431
+PA,Philadelphia,0.01266
+GA,Atlanta,0.02082
+OH,New Albany,0.04623
+MD,Baltimore,0.01165
+AL,Birmingham,0.02064
+ID,Boise,0.01728
+OK,Oklahoma City,0.02032
+KS,Wichita,0.02724
+RI,Providence,0.02057
+TX,Houston,0.01844
+NC,Forest City,0.04185
+NH,Manchester,0.01461
+IA,Des Moines,0.01413
+NE,Omaha,0.01244
+OR,Prineville,0.04533
+ID,Boise,0.01471
+OH,Cleveland,0.00957
+AZ,Chandler,0.0368
+AR,Little Rock,0.0202
+OR,The Dalles,0.05313
+OH,New Albany,0.03872
+ID,Boise,0.01636
+MN,Minneapolis,0.01511
+NC,Forest City,0.05173
+WA,Quincy,0.04044
+SD,Sioux Falls,0.01959
+ID,Boise,0.00788
+MT,Billings,0.01479
+NC,Forest City,0.02887
+TN,Nashville,0.01508
+MD,Baltimore,0.0155
+AZ,Mesa,0.05028
+AZ,Mesa,0.05069
+VA,Richmond,0.01929
+RI,Providence,0.02346
+NH,Manchester,0.02256
+LA,New Orleans,0.01214
+IA,Des Moines,0.01564
+WA,Seattle,0.01542
+OR,The Dalles,0.04409
+WY,Cheyenne,0.01506
+NV,Reno,0.05024
+MD,Baltimore,0.01876
+ME,Portland,0.01731
+OR,Portland,0.02383
+WA,Quincy,0.03291
+ME,Portland,0.01815
+NV,Reno,0.06053
+VA,Ashburn,0.03731
+AZ,Chandler,0.03461
+DE,Wilmington,0.0226
+RI,Providence,0.02209
+IN,Indianapolis,0.01591
+NC,Charlotte,0.01593
+OR,Portland,0.01463
+OK,Oklahoma City,0.00991
+NH,Manchester,0.01645
+NV,Las Vegas,0.01942
+MO,Kansas City,0.01518
+WI,Milwaukee,0.01467
+AZ,Tucson,0.01594
+MO,Kansas City,0.01738
+NH,Manchester,0.02223
+TX,San Antonio,0.03279
+GA,Atlanta,0.05095
+NC,Charlotte,0.0134
+IL,Chicago,0.0179
+IA,Des Moines,0.03311
+MN,Minneapolis,0.01109
+KY,Louisville,0.01581
+IA,Council Bluffs,0.04002
+PA,Philadelphia,0.01908
+SC,Charleston,0.01001
+WA,Seattle,0.02791
+WY,Cheyenne,0.00899
+MA,Boston,0.01808
+AL,Birmingham,0.00779
+WY,Cheyenne,0.01568
+AZ,Tucson,0.01015
+DE,Wilmington,0.02691
+VT,Burlington,0.01666
+MS,Jackson,0.0162
+ND,Fargo,0.00626
+PA,Philadelphia,0.02497
+CT,Bridgeport,0.02085
+MI,Detroit,0.01264
+GA,Atlanta,0.02832
+UT,Salt Lake City,0.00849
+WA,Quincy,0.03963
+AZ,Tucson,0.01735
+NE,Omaha,0.005
+AZ,Chandler,0.04774
+WI,Milwaukee,0.02232
+UT,Salt Lake City,0.01499
+ID,Boise,0.01324
+OK,Oklahoma City,0.01995
+ID,Boise,0.01978
+VA,Ashburn,0.05478
+SD,Sioux Falls,0.01089
+TN,Nashville,0.0189
+VA,Richmond,0.0256
+MI,Detroit,0.01364
+FL,Miami,0.02055
+AZ,Chandler,0.02962
+AZ,Chandler,0.05701
+NH,Manchester,0.0247
+PA,Philadelphia,0.02203
+NH,Manchester,0.01988
+IA,Council Bluffs,0.0492
+MI,Detroit,0.01694
+ME,Portland,0.01182
+GA,Savannah,0.0209
+VA,Richmond,0.01392
+NJ,Newark,0.02198
+KS,Wichita,0.01127
+OK,Oklahoma City,0.02017
+NC,Forest City,0.04687
+OR,Prineville,0.04899
+CO,Denver,0.01633
+IL,Chicago,0.02327
+SD,Sioux Falls,0.01804
+TX,Houston,0.01569
+HI,Honolulu,0.02444
+IA,Des Moines,0.00987
+NY,New York,0.01542
+OK,Oklahoma City,0.01233
+ME,Portland,0.01635
+OK,Oklahoma City,0.01862
+WA,Seattle,0.02501
+WA,Quincy,0.0418
+NE,Omaha,0.01352
+AZ,Tucson,0.0218
+GA,Atlanta,0.05086
+WA,Seattle,0.0272
+SD,Sioux Falls,0.01977
+AL,Birmingham,0.01192
+SD,Sioux Falls,0.02354
+VA,Ashburn,0.03664
+PA,Philadelphia,0.01987
+MO,Kansas City,0.00933
+NE,Omaha,0.01147
+CO,Denver,0.02346
+NY,New York,0.01394
+VA,Ashburn,0.04015
+KS,Wichita,0.01291
+MT,Billings,0.01592
+OH,New Albany,0.04004
+NM,Albuquerque,0.02387
+NC,Charlotte,0.02094
+NH,Manchester,0.01666
+OH,Cleveland,0.01645
+PA,Philadelphia,0.02109
+IA,Des Moines,0.02208
+NC,Forest City,0.03703
+VA,Ashburn,0.04274
+VT,Burlington,0.01235
+OH,Cleveland,0.0181
+AK,Anchorage,0.00923
+OR,The Dalles,0.05527
+MO,Kansas City,0.01426
+WA,Seattle,0.02348
+OK,Oklahoma City,0.01659
+ND,Fargo,0.01787
+VA,Richmond,0.01324
+TX,San Antonio,0.03697
+OH,Cleveland,0.01287
+AK,Anchorage,0.02569
+IA,Des Moines,0.01432
+MT,Billings,0.02179
+IA,Council Bluffs,0.05189
+TX,Houston,0.01842
+NY,New York,0.02223
+UT,Salt Lake City,0.02124
+VA,Ashburn,0.0492
+NC,Charlotte,0.01773
+TN,Nashville,0.01146
+OR,Portland,0.01884
+OH,New Albany,0.03658
+KY,Louisville,0.01936
+MA,Boston,0.02106
+AZ,Mesa,0.04708
+OR,Portland,0.02012
+MT,Billings,0.01988
+IA,Council Bluffs,0.04256
+HI,Honolulu,0.02766
+NC,Forest City,0.05059
+VT,Burlington,0.01533
+IL,Chicago,0.00924
+ME,Portland,0.02745
+OH,New Albany,0.05938
+IN,Indianapolis,0.02325
+KS,Wichita,0.01348
+HI,Honolulu,0.01827
+ID,Boise,0.01757
+AZ,Tucson,0.02253
+MA,Boston,0.00878
+NV,Reno,0.04042
+AK,Anchorage,0.02624
+AK,Anchorage,0.02591
+OH,New Albany,0.03498
+NV,Reno,0.03433
+MA,Boston,0.02235
+AR,Little Rock,0.01761
+OR,Prineville,0.06623
+KS,Wichita,0.01964
+VT,Burlington,0.01298
+NC,Charlotte,0.01223
+AZ,Chandler,0.04475
+OR,The Dalles,0.04366
+NJ,Newark,0.01376
+NM,Albuquerque,0.02022
+NC,Forest City,0.03894
+SC,Charleston,0.02143
+SC,Charleston,0.01993
+WV,Charleston,0.02244
+MA,Boston,0.01963
+AZ,Chandler,0.04468
+SD,Sioux Falls,0.03337
+AK,Anchorage,0.03179
+MT,Billings,0.02023
+NH,Manchester,0.0244
+NV,Reno,0.05677
+MI,Detroit,0.0247
+OH,Cleveland,0.02954
+WA,Quincy,0.04304
+MO,Kansas City,0.011
+SC,Charleston,0.02604
+ND,Fargo,0.01228
+CA,Los Angeles,0.01835
+WI,Milwaukee,0.01056
+TX,Houston,0.016
+SD,Sioux Falls,0.01254
+IN,Indianapolis,0.01635
+AZ,Mesa,0.04035
+WA,Quincy,0.05309
+OH,New Albany,0.04846
+TX,San Antonio,0.04621
+VA,Ashburn,0.04888
+VT,Burlington,0.02143
+IL,Chicago,0.02412
+PA,Philadelphia,0.02208
+HI,Honolulu,0.02524
+MA,Boston,0.01816
+MD,Baltimore,0.01571
+PA,Philadelphia,0.01076
+VA,Richmond,0.01837
+AZ,Tucson,0.01668
+OR,Prineville,0.04847
+NJ,Newark,0.01145
+OH,Cleveland,0.02109
+MD,Baltimore,0.01788
+MI,Detroit,0.01385
+VA,Ashburn,0.05341
+MD,Baltimore,0.01386
+NE,Omaha,0.01785
+AZ,Mesa,0.038
+OK,Oklahoma City,0.01853
+KY,Louisville,0.01542
+TX,San Antonio,0.03719
+OR,Prineville,0.04272
+NV,Las Vegas,0.01186
+UT,Salt Lake City,0.01683
+SC,Charleston,0.01379
+IA,Council Bluffs,0.05139
+VA,Richmond,0.02142
+SC,Charleston,0.02714
+MI,Detroit,0.02227
+RI,Providence,0.02394
+ND,Fargo,0.01964
+NJ,Newark,0.01527
+SC,Charleston,0.01331
+MI,Detroit,0.02037
+VA,Ashburn,0.0454
+IN,Indianapolis,0.01044
+ND,Fargo,0.01596
+GA,Atlanta,0.04628
+KY,Louisville,0.01495
+GA,Savannah,0.02586
+AK,Anchorage,0.01246
+WV,Charleston,0.0153
+OR,Portland,0.01548
+ID,Boise,0.0309
+WA,Seattle,0.02009
+AR,Little Rock,0.01857
+VA,Richmond,0.02184
+DE,Wilmington,0.01783
+TX,San Antonio,0.05071
+SD,Sioux Falls,0.02505
+AZ,Mesa,0.0392
+WA,Quincy,0.04485
+CT,Bridgeport,0.02107
+MS,Jackson,0.01263
+DE,Wilmington,0.02728
+MA,Boston,0.02051
+MS,Jackson,0.02001
+IA,Council Bluffs,0.04129
+TX,San Antonio,0.04831
+TN,Nashville,0.01498
+MD,Baltimore,0.02167
+NC,Charlotte,0.02186
+NV,Las Vegas,0.02082
+FL,Miami,0.02013
+IN,Indianapolis,0.0188
+DE,Wilmington,0.01205
+GA,Atlanta,0.02846
+PA,Philadelphia,0.01822
+WY,Cheyenne,0.01952
+CA,Los Angeles,0.01887
+NC,Forest City,0.0527
+IA,Des Moines,0.01318
+VA,Richmond,0.0165
+NH,Manchester,0.01686
+WV,Charleston,0.01276
+IL,Chicago,0.01317
+OR,Prineville,0.04543
+CA,Los Angeles,0.01538
+OR,The Dalles,0.04583
+IN,Indianapolis,0.02256
+NY,New York,0.01974
+OR,The Dalles,0.04237
+TX,Houston,0.01763
+RI,Providence,0.01532
+DE,Wilmington,0.02541
+OR,Prineville,0.05041
+WY,Cheyenne,0.0274
+ND,Fargo,0.01957
+SC,Charleston,0.02179
+AZ,Tucson,0.01065
+TN,Nashville,0.0252
+RI,Providence,0.0191
+OR,Prineville,0.06069
+VA,Ashburn,0.03863
+GA,Savannah,0.01939
+GA,Savannah,0.01502
+KS,Wichita,0.01468
+SD,Sioux Falls,0.01971
+VA,Richmond,0.02417
+OK,Oklahoma City,0.01433
+WI,Milwaukee,0.02898
+LA,New Orleans,0.01708
+TX,San Antonio,0.05238
+AK,Anchorage,0.02311
+OK,Oklahoma City,0.02206
+OH,Cleveland,0.02174
+OR,The Dalles,0.05065
+TN,Nashville,0.01316
+MS,Jackson,0.02744
+WI,Milwaukee,0.01471
+IA,Des Moines,0.01228
+RI,Providence,0.01705
+ME,Portland,0.0213
+GA,Savannah,0.01576
+VT,Burlington,0.01491
+VA,Ashburn,0.04108
+MS,Jackson,0.02097
+FL,Miami,0.01549
+AK,Anchorage,0.01267
+NE,Omaha,0.01846
+AZ,Tucson,0.02124
+NM,Albuquerque,0.02183
+NJ,Newark,0.02084
+MA,Boston,0.01467
+NC,Charlotte,0.02276
+IN,Indianapolis,0.01738
+RI,Providence,0.02942
+VA,Richmond,0.01965
+OR,Prineville,0.04903
+MT,Billings,0.01347
+WA,Quincy,0.05306
+VA,Ashburn,0.04591
+LA,New Orleans,0.0124
+AZ,Tucson,0.02113
+WI,Milwaukee,0.01834
+UT,Salt Lake City,0.00625
+WY,Cheyenne,0.01105
+CT,Bridgeport,0.02519
+CT,Bridgeport,0.02292
+OK,Oklahoma City,0.00925
+OH,Cleveland,0.01784
+IL,Chicago,0.00557
+AR,Little Rock,0.01113
+WV,Charleston,0.02358
+WA,Quincy,0.04008
+NC,Forest City,0.04031
+NE,Omaha,0.0219
+HI,Honolulu,0.01229
+NC,Charlotte,0.02056
+GA,Savannah,0.02643
+SD,Sioux Falls,0.01733
+MT,Billings,0.01542
+LA,New Orleans,0.02141
+KS,Wichita,0.01697
+WV,Charleston,0.01361
+FL,Miami,0.01092
+IA,Des Moines,0.02146
+NY,New York,0.01904
+AZ,Tucson,0.02734
+AK,Anchorage,0.01206
+AR,Little Rock,0.02203
+FL,Miami,0.01059
+OR,Portland,0.01552
+FL,Miami,0.02351
+AL,Birmingham,0.016
+NJ,Newark,0.01641
+UT,Salt Lake City,0.01934
+WV,Charleston,0.01943
+TX,Houston,0.02174
+MA,Boston,0.01549
+NE,Omaha,0.01899
+NC,Forest City,0.04318
+VT,Burlington,0.02529
+IA,Des Moines,0.03003
+UT,Salt Lake City,0.02011
+MS,Jackson,0.02632
+NY,New York,0.0197
+HI,Honolulu,0.01152
+TX,San Antonio,0.04102
+TX,San Antonio,0.04448
+AZ,Mesa,0.04518
+MS,Jackson,0.01399
+NJ,Newark,0.01537
+GA,Atlanta,0.05261
+OR,Prineville,0.04166
+WA,Seattle,0.02948
+NC,Forest City,0.03967
+WA,Seattle,0.01836
+RI,Providence,0.01419
+MS,Jackson,0.012
+ND,Fargo,0.01921
+ME,Portland,0.01448
+DE,Wilmington,0.01446
+AR,Little Rock,0.00842
+OR,Prineville,0.04497
+OH,New Albany,0.03922
+AR,Little Rock,0.01231
+MI,Detroit,0.01568
+NH,Manchester,0.01566
+NY,New York,0.02528
+ID,Boise,0.02371
+OK,Oklahoma City,0.01879
+WV,Charleston,0.02178
+NE,Omaha,0.02278
+GA,Atlanta,0.04098
+NJ,Newark,0.01209
+MI,Detroit,0.01536
+MT,Billings,0.01995
+MN,Minneapolis,0.0258
+MI,Detroit,0.01278
+DE,Wilmington,0.02234
+AR,Little Rock,0.01424
+SD,Sioux Falls,0.0217
+KY,Louisville,0.02245
+TN,Nashville,0.01416
+OR,Prineville,0.04227
+AZ,Mesa,0.04592
+NC,Forest City,0.0389
+MO,Kansas City,0.00953
+PA,Philadelphia,0.01734
+NJ,Newark,0.00853
+TX,San Antonio,0.05521
+TX,San Antonio,0.03329
+IA,Des Moines,0.02632
+ID,Boise,0.02303
+TX,Houston,0.01614
+NV,Las Vegas,0.02516
+OR,The Dalles,0.0606
+RI,Providence,0.01568
+WA,Quincy,0.04758
+OR,Portland,0.01263
+ND,Fargo,0.02439
+GA,Savannah,0.0274
+MA,Boston,0.02282
+OK,Oklahoma City,0.01861
+SD,Sioux Falls,0.01998
+NV,Reno,0.04686
+AL,Birmingham,0.01948
+KY,Louisville,0.01852
+HI,Honolulu,0.0193
+WV,Charleston,0.0304
+SD,Sioux Falls,0.01319
+NE,Omaha,0.02617
+PA,Philadelphia,0.02048
+TN,Nashville,0.0156
+TX,San Antonio,0.04457
+IL,Chicago,0.01545
+MD,Baltimore,0.01601
+WI,Milwaukee,0.01473
+NC,Forest City,0.04553
+MI,Detroit,0.02056
+WA,Quincy,0.05746
+MN,Minneapolis,0.01652
+MS,Jackson,0.01423
+OH,New Albany,0.04464
+MS,Jackson,0.01772
+KS,Wichita,0.028
+CT,Bridgeport,0.01432
+WA,Quincy,0.03219
+ID,Boise,0.0233
+IA,Council Bluffs,0.04747
+MS,Jackson,0.01747
+ID,Boise,0.02164
+OK,Oklahoma City,0.02113
+CA,Los Angeles,0.02806
+NH,Manchester,0.01459
+AR,Little Rock,0.01794
+AZ,Mesa,0.04285
+UT,Salt Lake City,0.02079
+CA,Los Angeles,0.02618
+AZ,Tucson,0.01441
+OR,Prineville,0.04916
+ME,Portland,0.01844
+NY,New York,0.02141
+NE,Omaha,0.02597
+NC,Forest City,0.04151
+AZ,Mesa,0.03577
+KY,Louisville,0.02091
+NM,Albuquerque,0.01547
+AK,Anchorage,0.01698
+UT,Salt Lake City,0.01684
+IL,Chicago,0.02307
+NH,Manchester,0.01044
+NV,Reno,0.05613
+AZ,Tucson,0.02142
+MD,Baltimore,0.01894
+NJ,Newark,0.01305
+MD,Baltimore,0.02201
+GA,Savannah,0.01737
+AR,Little Rock,0.01854
+NE,Omaha,0.02261
+OH,New Albany,0.03233
+WI,Milwaukee,0.02217
+VT,Burlington,0.01892
+ME,Portland,0.01967
+WA,Seattle,0.01438
+VT,Burlington,0.01299
+NE,Omaha,0.01613
+WY,Cheyenne,0.01904
+SD,Sioux Falls,0.01853
+OH,Cleveland,0.01188
+CO,Denver,0.02088
+ID,Boise,0.02036
+LA,New Orleans,0.02249
+IA,Des Moines,0.01277
+SD,Sioux Falls,0.02244
+OK,Oklahoma City,0.01104
+VT,Burlington,0.00676
+NC,Charlotte,0.01875
+GA,Atlanta,0.03636
+MD,Baltimore,0.01139
+HI,Honolulu,0.02091
+MS,Jackson,0.02014
+SC,Charleston,0.01739
+RI,Providence,0.01457
+AZ,Chandler,0.0506
+IL,Chicago,0.01177
+HI,Honolulu,0.01539
+AZ,Tucson,0.01175
+MT,Billings,0.0248
+MN,Minneapolis,0.02416
+NV,Reno,0.05328
+NV,Reno,0.04459
+WA,Seattle,0.02484
+NY,New York,0.01956
+ME,Portland,0.02676
+ID,Boise,0.02253
+OR,Portland,0.00823
+AK,Anchorage,0.0106
+CO,Denver,0.02169
+IA,Des Moines,0.0124
+AZ,Tucson,0.02327
+OH,New Albany,0.04502
+WA,Seattle,0.01929
+NJ,Newark,0.00942
+CA,Los Angeles,0.01698
+ND,Fargo,0.01587
+PA,Philadelphia,0.01148
+CA,Los Angeles,0.01779
+OK,Oklahoma City,0.01495
+NC,Forest City,0.04322
+RI,Providence,0.02133
+NJ,Newark,0.02521
+RI,Providence,0.02059
+AR,Little Rock,0.0083
+AR,Little Rock,0.00747
+VA,Ashburn,0.03041
+MO,Kansas City,0.02072
+CT,Bridgeport,0.02052
+WA,Seattle,0.02401
+AK,Anchorage,0.02094
+OH,Cleveland,0.02235
+NC,Forest City,0.05021
+TX,Houston,0.02224
+MN,Minneapolis,0.00812
+MD,Baltimore,0.02042
+SD,Sioux Falls,0.02063
+NV,Las Vegas,0.01571
+TN,Nashville,0.01582
+WA,Quincy,0.03888
+AZ,Tucson,0.01462
+NM,Albuquerque,0.02009
+SC,Charleston,0.01867
+AZ,Chandler,0.0522
+IN,Indianapolis,0.023
+KY,Louisville,0.01815
+VA,Ashburn,0.05968
+TX,Houston,0.01711
+IA,Council Bluffs,0.04797
+WV,Charleston,0.01743
+OH,Cleveland,0.01757
+OR,The Dalles,0.04821
+UT,Salt Lake City,0.02247
+HI,Honolulu,0.02764
+NY,New York,0.005
+NY,New York,0.02997
+KS,Wichita,0.01151
+MN,Minneapolis,0.01945
+KS,Wichita,0.01927
+MD,Baltimore,0.02184
+NY,New York,0.0133
+KS,Wichita,0.01388
+IN,Indianapolis,0.01869
+MO,Kansas City,0.0224
+GA,Atlanta,0.05354
+WV,Charleston,0.01542
+NJ,Newark,0.01162
+AK,Anchorage,0.01028
+NC,Forest City,0.0432
+OK,Oklahoma City,0.01895
+AR,Little Rock,0.02396
+ND,Fargo,0.01605
+TX,San Antonio,0.0516
+AZ,Chandler,0.03392
+AZ,Mesa,0.05049
+WY,Cheyenne,0.01755
+CO,Denver,0.01416
+CO,Denver,0.01361
+AZ,Tucson,0.01429
+VT,Burlington,0.01989
+MN,Minneapolis,0.0171
+CA,Los Angeles,0.01955
+NM,Albuquerque,0.01323
+CT,Bridgeport,0.01462
+GA,Savannah,0.01776
+TN,Nashville,0.01962
+VT,Burlington,0.02519
+NY,New York,0.01293
+NC,Forest City,0.06225
+MO,Kansas City,0.01768
+TN,Nashville,0.01794
+NH,Manchester,0.0206
+VT,Burlington,0.02332
+VA,Richmond,0.01357
+WA,Seattle,0.02361
+ME,Portland,0.01806
+NM,Albuquerque,0.0257
+VT,Burlington,0.01757
+IN,Indianapolis,0.01266
+NV,Reno,0.0493
+MO,Kansas City,0.02309
+KS,Wichita,0.00988
+NM,Albuquerque,0.01705
+NV,Reno,0.04835
+OR,Prineville,0.04296
+NC,Charlotte,0.02548
+FL,Miami,0.01861
+NH,Manchester,0.02165
+NJ,Newark,0.01452
+CA,Los Angeles,0.01431
+IA,Council Bluffs,0.04469
+IN,Indianapolis,0.01433
+IL,Chicago,0.01753
+NE,Omaha,0.01607
+AZ,Chandler,0.0399
+AK,Anchorage,0.01792
+VA,Ashburn,0.05357
+UT,Salt Lake City,0.0271
+OH,New Albany,0.04132
+OR,Prineville,0.04696
+NC,Charlotte,0.0153
+IA,Council Bluffs,0.03492
+IA,Des Moines,0.01164
+OH,New Albany,0.03246
+OR,Portland,0.01373
+SD,Sioux Falls,0.0241
+NJ,Newark,0.01133
+TN,Nashville,0.01459
+WI,Milwaukee,0.02377
+NE,Omaha,0.01791
+MA,Boston,0.00983
+IA,Des Moines,0.00659
+GA,Savannah,0.01733
+AL,Birmingham,0.02134
+AK,Anchorage,0.01008
+VT,Burlington,0.01731
+VA,Richmond,0.0178
+RI,Providence,0.01967
+ME,Portland,0.01401
+CA,Los Angeles,0.01994
+WI,Milwaukee,0.02302
+IA,Des Moines,0.0182
+ID,Boise,0.02221
+KS,Wichita,0.01915
+IA,Des Moines,0.02589
+CT,Bridgeport,0.02666
+ID,Boise,0.0236
+CO,Denver,0.0169
+AZ,Tucson,0.01377
+MT,Billings,0.01511
+OH,New Albany,0.04962
+NH,Manchester,0.02627
+NV,Reno,0.05062
+TX,San Antonio,0.04407
+NC,Charlotte,0.02051
+NC,Charlotte,0.01565
+AZ,Mesa,0.05211
+VA,Richmond,0.00916
+SC,Charleston,0.01713
+ND,Fargo,0.00703
+WA,Seattle,0.02131
+NE,Omaha,0.01788
+MN,Minneapolis,0.01638
+OR,The Dalles,0.0436
+TN,Nashville,0.01565
+IA,Council Bluffs,0.05401
+IN,Indianapolis,0.02332
+WV,Charleston,0.02029
+MO,Kansas City,0.02312
+AK,Anchorage,0.01653
+OR,Portland,0.01966
+WY,Cheyenne,0.01492
+ID,Boise,0.01318
+NJ,Newark,0.02139
+HI,Honolulu,0.01536
+DE,Wilmington,0.0204
+IL,Chicago,0.01008
+NM,Albuquerque,0.02069
+MO,Kansas City,0.01818
+WI,Milwaukee,0.01582
+IA,Des Moines,0.0167
+IA,Council Bluffs,0.04107
+WA,Seattle,0.00881
+NM,Albuquerque,0.01965
+OH,Cleveland,0.01327
+MT,Billings,0.01203
+VA,Richmond,0.01525
+AZ,Mesa,0.04312
+OR,Portland,0.01071
+NV,Reno,0.04419
+IL,Chicago,0.01066
+RI,Providence,0.0195
+IL,Chicago,0.01544
+NE,Omaha,0.01837
+ID,Boise,0.01871
+GA,Atlanta,0.03873
+NH,Manchester,0.01431
+NC,Charlotte,0.00981
+TX,San Antonio,0.0482
+GA,Atlanta,0.04733
+MI,Detroit,0.01994
+NV,Reno,0.04473
+KY,Louisville,0.01431
+IA,Des Moines,0.01683
+AL,Birmingham,0.0234
+KY,Louisville,0.0124
+NV,Reno,0.05181
+WA,Seattle,0.01901
+AZ,Mesa,0.04781
+AZ,Tucson,0.01671
+IL,Chicago,0.01675
+GA,Savannah,0.02206
+CO,Denver,0.01729
+NV,Reno,0.06861
+OH,Cleveland,0.02482
+DE,Wilmington,0.02767
+TX,San Antonio,0.05384
+WI,Milwaukee,0.0183
+MN,Minneapolis,0.01759
+OR,Portland,0.01722
+DE,Wilmington,0.01243
+OK,Oklahoma City,0.01238
+AZ,Chandler,0.0402
+AR,Little Rock,0.0119
+DE,Wilmington,0.00927
+NC,Forest City,0.04387
+MT,Billings,0.01456
+IL,Chicago,0.01863
+HI,Honolulu,0.0149
+OR,Portland,0.01838
+WA,Quincy,0.03353
+WA,Seattle,0.0236
+AZ,Chandler,0.03946
+VT,Burlington,0.0119
+NV,Las Vegas,0.0211
+MO,Kansas City,0.01733
+TX,Houston,0.01348
+TX,Houston,0.02116
+IN,Indianapolis,0.01735
+WA,Seattle,0.01894
+OH,Cleveland,0.02637
+NC,Forest City,0.0486
+NC,Forest City,0.05511
+KS,Wichita,0.00573
+WY,Cheyenne,0.01124
+IA,Council Bluffs,0.03939
+OH,Cleveland,0.02052
+MN,Minneapolis,0.01653
+MI,Detroit,0.0172
+TX,Houston,0.01714
+MT,Billings,0.01402
+OR,Portland,0.01508
+IL,Chicago,0.0199
+NY,New York,0.02014
+ME,Portland,0.02085
+DE,Wilmington,0.01953
+OH,New Albany,0.04773
+WA,Seattle,0.02427
+NY,New York,0.01995
+DE,Wilmington,0.0149
+AL,Birmingham,0.02891
+OH,Cleveland,0.02896
+DE,Wilmington,0.01593
+KY,Louisville,0.01628
+WA,Seattle,0.01845
+WV,Charleston,0.01192
+ND,Fargo,0.01904
+NH,Manchester,0.01696
+AR,Little Rock,0.02646
+IN,Indianapolis,0.02747
+AZ,Mesa,0.05017
+AL,Birmingham,0.02111
+CA,Los Angeles,0.01417
+NE,Omaha,0.01248
+NY,New York,0.01563
+AZ,Tucson,0.01282
+KS,Wichita,0.0186
+MO,Kansas City,0.00701
+OH,Cleveland,0.01734
+OR,Portland,0.01989
+NY,New York,0.01447
+MT,Billings,0.0232
+AR,Little Rock,0.01839
+RI,Providence,0.01896
+CA,Los Angeles,0.01044
+WA,Quincy,0.04804
+IL,Chicago,0.01356
+CA,Los Angeles,0.02024
+WA,Quincy,0.03819
+GA,Atlanta,0.03646
+NY,New York,0.0135
+WA,Seattle,0.0146
+NM,Albuquerque,0.01769
+ND,Fargo,0.01266
+AK,Anchorage,0.02241
+MS,Jackson,0.02027
+GA,Atlanta,0.04058
+OR,Prineville,0.05146
+WI,Milwaukee,0.02009
+MI,Detroit,0.01395
+GA,Savannah,0.01845
+OK,Oklahoma City,0.01559
+TX,Houston,0.01995
+MD,Baltimore,0.02467
+UT,Salt Lake City,0.01724
+ND,Fargo,0.01601
+UT,Salt Lake City,0.02094
+VA,Richmond,0.00853
+RI,Providence,0.01673
+NH,Manchester,0.01294
+AR,Little Rock,0.01677
+VA,Richmond,0.01906
+NJ,Newark,0.01793
+NY,New York,0.01809
+KS,Wichita,0.02067
+KY,Louisville,0.0227
+MT,Billings,0.01475
+VA,Ashburn,0.05
+MD,Baltimore,0.02688
+FL,Miami,0.00753
+SC,Charleston,0.0097
+OR,The Dalles,0.05272
+OH,Cleveland,0.02194
+GA,Savannah,0.02185
+AZ,Mesa,0.03856
+NY,New York,0.01013
+GA,Atlanta,0.05302
+HI,Honolulu,0.01675
+OH,Cleveland,0.01242
+DE,Wilmington,0.00932
+MO,Kansas City,0.01806
+WV,Charleston,0.0179
+AZ,Tucson,0.02297
+MO,Kansas City,0.01431
+KY,Louisville,0.01641
+OH,New Albany,0.0517
+MN,Minneapolis,0.0132
+SC,Charleston,0.01603
+WA,Quincy,0.04623
+FL,Miami,0.01737
+WI,Milwaukee,0.01628
+AK,Anchorage,0.0256
+CA,Los Angeles,0.01934
+TN,Nashville,0.0191
+WA,Seattle,0.01986
+MA,Boston,0.02213
+MS,Jackson,0.02063
+CA,Los Angeles,0.02015
+MN,Minneapolis,0.01692
+TX,Houston,0.02587
+MA,Boston,0.00565
+AZ,Tucson,0.01976
+TX,San Antonio,0.03878
+NC,Charlotte,0.02195
+PA,Philadelphia,0.02226
+NC,Forest City,0.04438
+NH,Manchester,0.01883
+MT,Billings,0.0177
+NC,Forest City,0.04725
+CA,Los Angeles,0.01774
+WA,Seattle,0.01358
+AK,Anchorage,0.01476
+CT,Bridgeport,0.02043
+CT,Bridgeport,0.01889
+OR,Portland,0.01967
+MO,Kansas City,0.02511
+NM,Albuquerque,0.01935
+NC,Charlotte,0.01785
+HI,Honolulu,0.01961
+IA,Des Moines,0.019
+MN,Minneapolis,0.01662
+KS,Wichita,0.01387
+MO,Kansas City,0.02481
+NE,Omaha,0.01449
+MA,Boston,0.02089
+OR,Portland,0.01891
+NY,New York,0.02066
+IA,Des Moines,0.02349
+NJ,Newark,0.01776
+TX,Houston,0.01713
+KS,Wichita,0.01578
+ND,Fargo,0.02124
+AZ,Tucson,0.023
+GA,Savannah,0.005
+WA,Seattle,0.01888
+VA,Ashburn,0.03759
+DE,Wilmington,0.01322
+GA,Savannah,0.01249
+WV,Charleston,0.01524
+MO,Kansas City,0.01399
+CA,Los Angeles,0.01863
+UT,Salt Lake City,0.01615
+KS,Wichita,0.02133
+NY,New York,0.01896
+MO,Kansas City,0.01833
+FL,Miami,0.00931
+NV,Las Vegas,0.01744
+VA,Richmond,0.01917
+MN,Minneapolis,0.01716
+NC,Forest City,0.03436
+HI,Honolulu,0.02255
+NV,Las Vegas,0.02129
+IL,Chicago,0.02399
+ME,Portland,0.01629
+CO,Denver,0.01761
+NV,Reno,0.06255
+CT,Bridgeport,0.005
+PA,Philadelphia,0.02112
+NV,Reno,0.04016
+WA,Quincy,0.0446
+FL,Miami,0.02467
+VA,Ashburn,0.05406
+OK,Oklahoma City,0.01592
+ME,Portland,0.02404
+GA,Savannah,0.01235
+ID,Boise,0.01589
+FL,Miami,0.01416
+WA,Quincy,0.03251
+ME,Portland,0.02044
+CT,Bridgeport,0.01115
+MI,Detroit,0.01642
+IA,Council Bluffs,0.05324
+MI,Detroit,0.01503
+ND,Fargo,0.01588
+CA,Los Angeles,0.01989
+NE,Omaha,0.01689
+WA,Seattle,0.01942
+MT,Billings,0.01386
+MT,Billings,0.01654
+GA,Savannah,0.01467
+TX,San Antonio,0.04168
+NM,Albuquerque,0.0212
+MN,Minneapolis,0.01658
+WI,Milwaukee,0.02054
+OH,Cleveland,0.02242
+SC,Charleston,0.01217
+AR,Little Rock,0.0149
+CA,Los Angeles,0.02103
+WV,Charleston,0.01625
+CO,Denver,0.02408
+OR,Prineville,0.04767
+SC,Charleston,0.01709
+MD,Baltimore,0.01897
+NV,Reno,0.05173
+AZ,Mesa,0.03696
+MA,Boston,0.01137
+GA,Atlanta,0.05235
+ND,Fargo,0.02546
+RI,Providence,0.02261
+UT,Salt Lake City,0.017
+AR,Little Rock,0.0144
+FL,Miami,0.02671
+CA,Los Angeles,0.02346
+NM,Albuquerque,0.0185
+IA,Des Moines,0.02163
+MT,Billings,0.02219
+MT,Billings,0.01834
+AZ,Mesa,0.04521
+CT,Bridgeport,0.01748
+NJ,Newark,0.02324
+SD,Sioux Falls,0.02001
+ID,Boise,0.01258
+VT,Burlington,0.01254
+AZ,Chandler,0.04654
+OR,Portland,0.02185
+AK,Anchorage,0.02078
+RI,Providence,0.02394
+NC,Forest City,0.0467
+TX,San Antonio,0.05574
+WV,Charleston,0.01073
+OR,The Dalles,0.0438
+ME,Portland,0.01442
+WA,Quincy,0.03475
+MN,Minneapolis,0.02457
+VA,Richmond,0.01638
+VA,Richmond,0.02517
+TX,San Antonio,0.0651
+SC,Charleston,0.02753
+MI,Detroit,0.01711
+DE,Wilmington,0.01887
+MD,Baltimore,0.02076
+UT,Salt Lake City,0.01646
+AZ,Mesa,0.04384
+OR,Portland,0.01797
+NC,Charlotte,0.01394
+MD,Baltimore,0.01761
+MS,Jackson,0.02007
+AZ,Mesa,0.04938
+HI,Honolulu,0.02804
+NC,Forest City,0.03919
+NE,Omaha,0.0213
+MD,Baltimore,0.0241
+OK,Oklahoma City,0.01566
+RI,Providence,0.01583
+OH,New Albany,0.03763
+AR,Little Rock,0.02656
+WI,Milwaukee,0.01005
+CT,Bridgeport,0.01817
+GA,Savannah,0.01734
+AZ,Tucson,0.01667
+KY,Louisville,0.0061
+WA,Seattle,0.02219
+AZ,Mesa,0.05399
+ME,Portland,0.01538
+CT,Bridgeport,0.01898
+OH,New Albany,0.04382
+RI,Providence,0.00856
+NE,Omaha,0.01992
+NV,Reno,0.03973
+KS,Wichita,0.02105
+MN,Minneapolis,0.01548
+WA,Quincy,0.0562
+OR,Portland,0.01068
+OR,Portland,0.01909
+DE,Wilmington,0.01918
+AR,Little Rock,0.01125
+MO,Kansas City,0.01562
+OH,New Albany,0.03294
+OR,Portland,0.01039
+MT,Billings,0.02653
+IA,Des Moines,0.01447
+RI,Providence,0.01752
+RI,Providence,0.02518
+WA,Seattle,0.02187
+KY,Louisville,0.00838
+RI,Providence,0.024
+NC,Forest City,0.0408
+MN,Minneapolis,0.01224
+VA,Ashburn,0.04327
+OK,Oklahoma City,0.01288
+WY,Cheyenne,0.02316
+CA,Los Angeles,0.01322
+AZ,Mesa,0.03768
+AZ,Mesa,0.04854
+AL,Birmingham,0.01426
+TX,San Antonio,0.03493
+AR,Little Rock,0.02222
+MN,Minneapolis,0.01057
+OK,Oklahoma City,0.01931
+ME,Portland,0.01701
+CA,Los Angeles,0.01772
+IN,Indianapolis,0.01151
+LA,New Orleans,0.01677
+VA,Richmond,0.00787
+IA,Des Moines,0.00534
+WA,Seattle,0.02745
+NY,New York,0.03177
+OR,Prineville,0.0275
+LA,New Orleans,0.00721
+NM,Albuquerque,0.03299
+OH,New Albany,0.05802
+SC,Charleston,0.02508
+CT,Bridgeport,0.01715
+WI,Milwaukee,0.01688
+AL,Birmingham,0.01284
+NV,Las Vegas,0.01219
+AZ,Chandler,0.04968
+NY,New York,0.03041
+GA,Savannah,0.01749
+AZ,Mesa,0.03711
+IN,Indianapolis,0.02859
+ME,Portland,0.02599
+OR,Portland,0.01178
+NM,Albuquerque,0.01954
+MI,Detroit,0.01477
+WA,Quincy,0.05105
+NY,New York,0.02153
+NC,Charlotte,0.01748
+WV,Charleston,0.01277
+CT,Bridgeport,0.01776
+AZ,Tucson,0.00938
+OR,Portland,0.0212
+SC,Charleston,0.0208
+MN,Minneapolis,0.01418
+PA,Philadelphia,0.02059
+TN,Nashville,0.01294
+VT,Burlington,0.01845
+IL,Chicago,0.01359
+IL,Chicago,0.01531
+RI,Providence,0.02111
+NJ,Newark,0.02527
+NV,Reno,0.04737
+CA,Los Angeles,0.0203
+MT,Billings,0.02001
+CO,Denver,0.02123
+KY,Louisville,0.02269
+OR,The Dalles,0.04428
+AZ,Mesa,0.04493
+SD,Sioux Falls,0.01769
+ND,Fargo,0.01552
+AL,Birmingham,0.0192
+OR,Portland,0.02007
+SD,Sioux Falls,0.0251
+OR,The Dalles,0.04401
+OR,The Dalles,0.03238
+WA,Seattle,0.0136
+NE,Omaha,0.02069
+ID,Boise,0.02787
+LA,New Orleans,0.01658
+WA,Seattle,0.02341
+NC,Charlotte,0.01846
+IA,Council Bluffs,0.04405
+OR,The Dalles,0.04559
+NH,Manchester,0.02352
+DE,Wilmington,0.01688
+MA,Boston,0.01934
+LA,New Orleans,0.02768
+MS,Jackson,0.0215
+OR,Portland,0.01947
+GA,Atlanta,0.02378
+DE,Wilmington,0.01355
+NM,Albuquerque,0.0119
+KY,Louisville,0.01845
+WI,Milwaukee,0.01066
+WY,Cheyenne,0.021
+IA,Des Moines,0.02068
+TN,Nashville,0.01312
+MA,Boston,0.01398
+GA,Atlanta,0.05491
+NJ,Newark,0.02093
+OR,Portland,0.01625
+MD,Baltimore,0.01706
+NH,Manchester,0.02202
+NV,Reno,0.03068
+WV,Charleston,0.01417
+AL,Birmingham,0.01324
+TX,Houston,0.02273
+DE,Wilmington,0.01478
+FL,Miami,0.01674
+AR,Little Rock,0.01122
+NH,Manchester,0.01322
+MA,Boston,0.01679
+TN,Nashville,0.0121
+TX,Houston,0.01838
+LA,New Orleans,0.02595
+MO,Kansas City,0.00517
+LA,New Orleans,0.01866
+IA,Council Bluffs,0.03517
+AL,Birmingham,0.01775
+NV,Las Vegas,0.02195
+IA,Council Bluffs,0.04581
+MD,Baltimore,0.03255
+PA,Philadelphia,0.01452
+UT,Salt Lake City,0.01659
+TX,Houston,0.01058
+OR,Portland,0.00825
+MO,Kansas City,0.01056
+SD,Sioux Falls,0.0148
+GA,Atlanta,0.04511
+WA,Seattle,0.02466
+CA,Los Angeles,0.02163
+NC,Forest City,0.04376
+MS,Jackson,0.02034
+AZ,Mesa,0.06371
+UT,Salt Lake City,0.02787
+OR,Prineville,0.04673
+LA,New Orleans,0.01316
+DE,Wilmington,0.02239
+AR,Little Rock,0.01701
+NY,New York,0.02064
+NV,Reno,0.05181
+ME,Portland,0.01631
+TX,San Antonio,0.05224
+ID,Boise,0.0266
+WA,Seattle,0.02677
+MS,Jackson,0.01133
+MS,Jackson,0.01661
+WA,Seattle,0.01482
+NV,Las Vegas,0.01799
+UT,Salt Lake City,0.00937
+TX,San Antonio,0.05412
+WV,Charleston,0.01658
+AK,Anchorage,0.01705
+WA,Quincy,0.05476
+VT,Burlington,0.02215
+NV,Reno,0.03986
+MN,Minneapolis,0.02287
+PA,Philadelphia,0.02478
+ID,Boise,0.0267
+WA,Seattle,0.0265
+OK,Oklahoma City,0.01791
+IA,Des Moines,0.01842
+OH,Cleveland,0.02276
+OH,New Albany,0.04563
+LA,New Orleans,0.00934
+TN,Nashville,0.02025
+IL,Chicago,0.01292
+OR,The Dalles,0.0457
+KY,Louisville,0.01575
+GA,Savannah,0.01533
+CT,Bridgeport,0.01702
+OR,The Dalles,0.04019
+OK,Oklahoma City,0.00798
+PA,Philadelphia,0.02554
+OR,Portland,0.01285
+OR,Portland,0.01407
+NM,Albuquerque,0.01033
+IA,Des Moines,0.02461
+PA,Philadelphia,0.01891
+WI,Milwaukee,0.0212
+AZ,Mesa,0.03442
+WI,Milwaukee,0.02157
+LA,New Orleans,0.01416
+IL,Chicago,0.02492
+RI,Providence,0.01597
+VA,Richmond,0.02589
+MN,Minneapolis,0.02174
+SC,Charleston,0.01821
+CA,Los Angeles,0.02318
+MI,Detroit,0.01307
+UT,Salt Lake City,0.02382
+MA,Boston,0.00812
+WA,Quincy,0.04011
+MI,Detroit,0.00977
+MT,Billings,0.02435
+ME,Portland,0.01841
+NE,Omaha,0.01775
+OR,Prineville,0.04299
+GA,Atlanta,0.05733
+KS,Wichita,0.01802
+SC,Charleston,0.01675
+MA,Boston,0.0171
+OR,Prineville,0.04297
+NC,Forest City,0.06027
+NH,Manchester,0.00995
+RI,Providence,0.01498
+KS,Wichita,0.02068
+VA,Ashburn,0.05033
+LA,New Orleans,0.016
+CA,Los Angeles,0.0128
+CA,Los Angeles,0.0191
+VA,Richmond,0.024
+AL,Birmingham,0.0134
+WI,Milwaukee,0.01732
+OR,The Dalles,0.04667
+AK,Anchorage,0.0185
+NJ,Newark,0.02811
+AZ,Tucson,0.01538
+WI,Milwaukee,0.01707
+WI,Milwaukee,0.02039
+OR,Portland,0.02225
+CT,Bridgeport,0.01518
+IL,Chicago,0.01953
+NY,New York,0.01523
+OR,Prineville,0.05823
+IN,Indianapolis,0.02588
+MD,Baltimore,0.02058
+NJ,Newark,0.02659
+CT,Bridgeport,0.01916
+LA,New Orleans,0.00971
+OR,Prineville,0.04706
+OH,Cleveland,0.00993
+OR,Prineville,0.0433
+OK,Oklahoma City,0.01981
+VT,Burlington,0.01115
+AZ,Tucson,0.01968
+IN,Indianapolis,0.015
+WA,Seattle,0.01663
+NJ,Newark,0.01501
+NE,Omaha,0.02618
+NE,Omaha,0.02254
+VA,Richmond,0.01464
+OH,Cleveland,0.01913
+RI,Providence,0.01122
+OH,Cleveland,0.01768
+CO,Denver,0.01789
+ND,Fargo,0.01416
+CO,Denver,0.01245
+PA,Philadelphia,0.02251
+IA,Council Bluffs,0.04852
+WA,Quincy,0.0383
+VA,Ashburn,0.0498
+WY,Cheyenne,0.01981
+AR,Little Rock,0.0188
+IN,Indianapolis,0.01442
+AZ,Tucson,0.01762
+OR,Prineville,0.03981
+GA,Atlanta,0.05574
+ID,Boise,0.02259
+NC,Forest City,0.03291
+AZ,Mesa,0.04331
+WV,Charleston,0.01089
+SC,Charleston,0.01534
+IA,Des Moines,0.0192
+NE,Omaha,0.02879
+OK,Oklahoma City,0.01256
+FL,Miami,0.01598
+OK,Oklahoma City,0.02194
+FL,Miami,0.01585
+VA,Richmond,0.01585
+FL,Miami,0.01782
+OH,Cleveland,0.01324
+CT,Bridgeport,0.01949
+NH,Manchester,0.01919
+NV,Las Vegas,0.01123
+GA,Atlanta,0.03523
+MA,Boston,0.01086
+VA,Richmond,0.02158
+AR,Little Rock,0.01478
+NE,Omaha,0.01671
+AR,Little Rock,0.02252
+SD,Sioux Falls,0.02054
+VT,Burlington,0.01213
+AZ,Mesa,0.02944
+IN,Indianapolis,0.02158
+VA,Ashburn,0.05005
+NC,Charlotte,0.02201
+KY,Louisville,0.01946
+ND,Fargo,0.01402
+AR,Little Rock,0.01769
+NY,New York,0.01953
+OR,The Dalles,0.0399
+ID,Boise,0.01801
+MN,Minneapolis,0.01527
+OR,Portland,0.02428
+VA,Richmond,0.01692
+NC,Charlotte,0.02319
+RI,Providence,0.00708
+AZ,Mesa,0.04424
+CO,Denver,0.02066
+AL,Birmingham,0.00859
+CA,Los Angeles,0.01968
+NV,Las Vegas,0.0207
+CO,Denver,0.01447
+TN,Nashville,0.0164
+MN,Minneapolis,0.01755
+TX,San Antonio,0.05573
+MS,Jackson,0.01602
+CT,Bridgeport,0.01913
+ID,Boise,0.02948
+GA,Savannah,0.01874
+NH,Manchester,0.01273
+DE,Wilmington,0.01635
+NJ,Newark,0.01352
+AR,Little Rock,0.01865
+IA,Council Bluffs,0.03854
+OR,Portland,0.02254
+UT,Salt Lake City,0.02201
+CT,Bridgeport,0.00998
+NJ,Newark,0.0154
+OH,New Albany,0.04505
+GA,Savannah,0.02456
+AZ,Tucson,0.01723
+HI,Honolulu,0.03115
+OK,Oklahoma City,0.02594
+ND,Fargo,0.02118
+NC,Forest City,0.04741
+SC,Charleston,0.01295
+KY,Louisville,0.01301
+VA,Richmond,0.00839
+PA,Philadelphia,0.01543
+KS,Wichita,0.02142
+OR,The Dalles,0.0471
+NV,Reno,0.04427
+IA,Council Bluffs,0.0458
+TX,Houston,0.01488
+MD,Baltimore,0.02112
+RI,Providence,0.0091
+NY,New York,0.02168
+HI,Honolulu,0.005
+WA,Seattle,0.02092
+WA,Quincy,0.03621
+WA,Seattle,0.02507
+OK,Oklahoma City,0.02098
+NC,Charlotte,0.01632
+IL,Chicago,0.01866
+AR,Little Rock,0.02416
+OR,The Dalles,0.05412
+MA,Boston,0.01463
+OH,New Albany,0.03918
+WA,Seattle,0.01181
+AK,Anchorage,0.01089
+VT,Burlington,0.01764
+AZ,Mesa,0.05333
+DE,Wilmington,0.01643
+AZ,Mesa,0.03966
+MO,Kansas City,0.0183
+OR,Prineville,0.04403
+LA,New Orleans,0.01622
+WY,Cheyenne,0.01508
+PA,Philadelphia,0.00905
+NC,Charlotte,0.01438
+MS,Jackson,0.01767
+SC,Charleston,0.01654
+NV,Las Vegas,0.02238
+TX,Houston,0.01591
+NV,Las Vegas,0.02345
+IA,Des Moines,0.02443
+NC,Charlotte,0.01595
+IL,Chicago,0.0202
+IL,Chicago,0.01132
+OR,Prineville,0.0407
+KS,Wichita,0.01007
+VT,Burlington,0.01571
+FL,Miami,0.01705
+AZ,Mesa,0.04073
+NV,Reno,0.04791
+AZ,Tucson,0.01843
+KY,Louisville,0.02114
+AZ,Tucson,0.01296
+NV,Las Vegas,0.0152
+MO,Kansas City,0.01883
+AZ,Tucson,0.02148
+PA,Philadelphia,0.01566
+CO,Denver,0.01429
+LA,New Orleans,0.01201
+OH,New Albany,0.05139
+MS,Jackson,0.005
+VA,Ashburn,0.03715
+NC,Charlotte,0.01506
+AZ,Chandler,0.05117
+OR,The Dalles,0.05157
+FL,Miami,0.01784
+IA,Des Moines,0.02353
+MD,Baltimore,0.02198
+IN,Indianapolis,0.0158
+UT,Salt Lake City,0.02932
+WA,Seattle,0.02508
+WI,Milwaukee,0.02065
+HI,Honolulu,0.02509
+WI,Milwaukee,0.02122
+AZ,Tucson,0.02079
+KY,Louisville,0.01661
+NC,Forest City,0.05718
+MA,Boston,0.02339
+NC,Forest City,0.053
+NC,Charlotte,0.03094
+KS,Wichita,0.02167
+TX,San Antonio,0.04982
+SC,Charleston,0.01476
+CO,Denver,0.01719
+FL,Miami,0.02253
+SD,Sioux Falls,0.01641
+IA,Des Moines,0.02186
+VA,Ashburn,0.06374
+IN,Indianapolis,0.01483
+RI,Providence,0.02049
+RI,Providence,0.01285
+OR,The Dalles,0.0497
+VT,Burlington,0.01881
+IL,Chicago,0.01884
+FL,Miami,0.01787
+NJ,Newark,0.01993
+NV,Las Vegas,0.01503
+OK,Oklahoma City,0.02035
+NV,Reno,0.05438
+CO,Denver,0.00827
+CA,Los Angeles,0.01255
+PA,Philadelphia,0.01202
+AL,Birmingham,0.01665
+CT,Bridgeport,0.02599
+ME,Portland,0.02399
+OK,Oklahoma City,0.02113
+WV,Charleston,0.01649
+LA,New Orleans,0.0208
+AZ,Mesa,0.04977
+MN,Minneapolis,0.01394
+SD,Sioux Falls,0.02591
+RI,Providence,0.02888
+AZ,Tucson,0.01005
+LA,New Orleans,0.01547
+NV,Reno,0.04564
+HI,Honolulu,0.02662
+IL,Chicago,0.02004
+VA,Ashburn,0.0551
+OR,Portland,0.02151
+VT,Burlington,0.02002
+IL,Chicago,0.01181
+KS,Wichita,0.01606
+CT,Bridgeport,0.01822
+NC,Forest City,0.045
+AZ,Tucson,0.01673
+GA,Atlanta,0.04701
+AK,Anchorage,0.01759
+WI,Milwaukee,0.01834
+OH,Cleveland,0.02427
+TX,Houston,0.01524
+WY,Cheyenne,0.02044
+MS,Jackson,0.0094
+AZ,Mesa,0.04943
+SC,Charleston,0.01347
+MN,Minneapolis,0.01657
+WA,Seattle,0.0225
+MS,Jackson,0.02115
+MN,Minneapolis,0.02417
+NJ,Newark,0.02152
+MS,Jackson,0.01349
+MA,Boston,0.02204
+GA,Atlanta,0.04599
+ID,Boise,0.0134
+SD,Sioux Falls,0.02725
+RI,Providence,0.01635
+OR,Portland,0.01626
+RI,Providence,0.02259
+IL,Chicago,0.01264
+IA,Des Moines,0.01992
+SD,Sioux Falls,0.01358
+KY,Louisville,0.01149
+WA,Quincy,0.04363
+ME,Portland,0.02557
+WA,Seattle,0.01426
+MO,Kansas City,0.01218
+ND,Fargo,0.02175
+AR,Little Rock,0.01523
+SD,Sioux Falls,0.01515
+PA,Philadelphia,0.01738
+AZ,Tucson,0.01859
+WA,Quincy,0.03541
+NY,New York,0.01441
+WI,Milwaukee,0.01909
+GA,Savannah,0.02747
+CT,Bridgeport,0.01081
+AK,Anchorage,0.01074
+NH,Manchester,0.02096
+TX,Houston,0.02143
+VA,Richmond,0.01983
+OR,The Dalles,0.04367
+IA,Council Bluffs,0.0456
+NM,Albuquerque,0.01896
+FL,Miami,0.01917
+ME,Portland,0.01088
+NY,New York,0.01166
+OK,Oklahoma City,0.01449
+OR,The Dalles,0.03986
+OK,Oklahoma City,0.01086
+TX,San Antonio,0.03869
+LA,New Orleans,0.02218
+NV,Reno,0.04691
+ME,Portland,0.01153
+NV,Reno,0.0294
+MI,Detroit,0.01448
+MS,Jackson,0.01843
+GA,Savannah,0.02527
+RI,Providence,0.01992
+NH,Manchester,0.02585
+AZ,Chandler,0.04933
+TX,Houston,0.01982
+MI,Detroit,0.01821
+NC,Forest City,0.04743
+GA,Savannah,0.02915
+CT,Bridgeport,0.02078
+GA,Atlanta,0.04013
+DE,Wilmington,0.01896
+MT,Billings,0.02209
+NH,Manchester,0.01106
+SC,Charleston,0.00539
+AZ,Chandler,0.03692
+NC,Forest City,0.04126
+AZ,Chandler,0.01698
+DE,Wilmington,0.01254
+CO,Denver,0.0127
+IA,Des Moines,0.02012
+MN,Minneapolis,0.02221
+IN,Indianapolis,0.02263
+AK,Anchorage,0.0191
+VA,Richmond,0.00709
+OR,Prineville,0.03794
+NC,Forest City,0.02598
+TX,Houston,0.01932
+ND,Fargo,0.01817
+OH,Cleveland,0.02009
+MD,Baltimore,0.02267
+TN,Nashville,0.01593
+SC,Charleston,0.02398
+MI,Detroit,0.02085
+ND,Fargo,0.01528
+CO,Denver,0.01312
+HI,Honolulu,0.0236
+AZ,Chandler,0.04409
+CA,Los Angeles,0.025
+NJ,Newark,0.01118
+NV,Reno,0.05636
+NC,Charlotte,0.02427
+NJ,Newark,0.0195
+NC,Forest City,0.04962
+DE,Wilmington,0.01696
+NC,Charlotte,0.01862
+AZ,Chandler,0.04673
+NC,Forest City,0.04681
+WY,Cheyenne,0.02498
+WV,Charleston,0.02133
+TX,Houston,0.01923
+AK,Anchorage,0.01993
+CA,Los Angeles,0.01661
+FL,Miami,0.01738
+MS,Jackson,0.02456
+ME,Portland,0.02053
+WV,Charleston,0.02058
+NC,Charlotte,0.02477
+CA,Los Angeles,0.01663
+WA,Seattle,0.01393
+OR,Portland,0.02553
+CT,Bridgeport,0.01423
+MT,Billings,0.016
+NY,New York,0.01678
+WI,Milwaukee,0.0072
+OR,The Dalles,0.05842
+LA,New Orleans,0.02015
+TN,Nashville,0.01401
+WV,Charleston,0.01975
+NV,Reno,0.03624
+OR,Portland,0.01552
+NC,Forest City,0.03743
+IN,Indianapolis,0.01349
+VT,Burlington,0.02013
+NM,Albuquerque,0.02347
+MT,Billings,0.02202
+CO,Denver,0.01031
+IL,Chicago,0.0258
+NC,Charlotte,0.00864
+AZ,Chandler,0.05866
+NM,Albuquerque,0.02283
+AK,Anchorage,0.01648
+NY,New York,0.00902
+IL,Chicago,0.01465
+CO,Denver,0.00911
+NV,Reno,0.04249
+CA,Los Angeles,0.01367
+IN,Indianapolis,0.01847
+TX,Houston,0.01296
+OR,Prineville,0.04988
+LA,New Orleans,0.01702
+SD,Sioux Falls,0.01475
+IL,Chicago,0.01757
+OR,Portland,0.02099
+NM,Albuquerque,0.01153
+VT,Burlington,0.02347
+LA,New Orleans,0.01192
+OR,Portland,0.02205
+DE,Wilmington,0.01901
+KS,Wichita,0.00991
+VA,Richmond,0.01969
+FL,Miami,0.01645
+NV,Reno,0.04836
+PA,Philadelphia,0.01077
+AK,Anchorage,0.01526
+KS,Wichita,0.02111
+LA,New Orleans,0.01303
+OH,Cleveland,0.01597
+AR,Little Rock,0.01287
+OK,Oklahoma City,0.0124
+NH,Manchester,0.01338
+CT,Bridgeport,0.01566
+OK,Oklahoma City,0.02174
+WV,Charleston,0.01308
+HI,Honolulu,0.01428
+VT,Burlington,0.02151
+IL,Chicago,0.02421
+MS,Jackson,0.02091
+MT,Billings,0.02093
+RI,Providence,0.01803
+MS,Jackson,0.01824
+MN,Minneapolis,0.01459
+WA,Quincy,0.03606
+NJ,Newark,0.01996
+OR,Portland,0.01791
+MS,Jackson,0.02364
+ID,Boise,0.01938
+NV,Reno,0.04747
+VA,Richmond,0.01596
+ME,Portland,0.0118
+AZ,Mesa,0.03303
+FL,Miami,0.01202
+VA,Richmond,0.00553
+MN,Minneapolis,0.0124
+AZ,Chandler,0.04079
+NE,Omaha,0.02223
+FL,Miami,0.0146
+OR,Portland,0.0155
+MI,Detroit,0.01932
+MI,Detroit,0.02146
+OK,Oklahoma City,0.02475
+MT,Billings,0.01505
+VT,Burlington,0.01823
+GA,Savannah,0.01857
+NM,Albuquerque,0.01864
+TX,Houston,0.02529
+AZ,Chandler,0.03834
+ID,Boise,0.01735
+FL,Miami,0.02132
+VA,Richmond,0.0194
+OR,Prineville,0.05471
+PA,Philadelphia,0.01698
+NV,Reno,0.02587
+WA,Seattle,0.0087
+NV,Las Vegas,0.01413
+MS,Jackson,0.01597
+IL,Chicago,0.005
+OR,The Dalles,0.04538
+WV,Charleston,0.0147
+OR,The Dalles,0.05048
+MN,Minneapolis,0.0184
+VT,Burlington,0.02105
+IL,Chicago,0.01935
+TX,Houston,0.02596
+NH,Manchester,0.01326
+IN,Indianapolis,0.02338
+IA,Des Moines,0.0151
+WI,Milwaukee,0.01206
+IA,Des Moines,0.01633
+OH,New Albany,0.05483
+AZ,Chandler,0.04054
+RI,Providence,0.03004
+VA,Ashburn,0.05276
+NV,Las Vegas,0.01453
+OH,New Albany,0.04638
+VT,Burlington,0.02464
+FL,Miami,0.0226
+WV,Charleston,0.01573
+TX,San Antonio,0.05269
+WY,Cheyenne,0.01642
+MD,Baltimore,0.01585
+IN,Indianapolis,0.005
+FL,Miami,0.01651
+NE,Omaha,0.01917
+MS,Jackson,0.01762
+IN,Indianapolis,0.02464
+CA,Los Angeles,0.015
+MD,Baltimore,0.01628
+CA,Los Angeles,0.01986
+IA,Des Moines,0.02338
+WI,Milwaukee,0.0181
+OR,The Dalles,0.05325
+ME,Portland,0.01989
+WV,Charleston,0.01869
+HI,Honolulu,0.01179
+OR,Prineville,0.05011
+WI,Milwaukee,0.018
+DE,Wilmington,0.01609
+OH,New Albany,0.03742
+OK,Oklahoma City,0.03256
+IL,Chicago,0.01672
+IA,Council Bluffs,0.04626
+IN,Indianapolis,0.00729
+MI,Detroit,0.01815
+MI,Detroit,0.02097
+AZ,Chandler,0.0386
+VA,Ashburn,0.04885
+PA,Philadelphia,0.02433
+OK,Oklahoma City,0.02527
+AZ,Tucson,0.01175
+OR,Prineville,0.06104
+OR,Prineville,0.03879
+DE,Wilmington,0.01575
+WA,Seattle,0.02088
+NM,Albuquerque,0.01448
+NC,Charlotte,0.01005
+GA,Savannah,0.02308
+ME,Portland,0.0149
+MT,Billings,0.02667
+AL,Birmingham,0.03003
+AZ,Tucson,0.01584
+MD,Baltimore,0.02428
+MN,Minneapolis,0.01475
+ND,Fargo,0.02047
+RI,Providence,0.017
+MN,Minneapolis,0.01935
+WI,Milwaukee,0.01774
+HI,Honolulu,0.01363
+WY,Cheyenne,0.02109
+NH,Manchester,0.01823
+NV,Las Vegas,0.01834
+KS,Wichita,0.01784
+MN,Minneapolis,0.02524
+AZ,Mesa,0.04216
+WV,Charleston,0.01871
+TN,Nashville,0.01815
+KS,Wichita,0.02046
+WY,Cheyenne,0.01872
+ME,Portland,0.00545
+AZ,Mesa,0.03818
+IN,Indianapolis,0.01226
+AR,Little Rock,0.02104
+NM,Albuquerque,0.011
+AZ,Tucson,0.02073
+MT,Billings,0.01828
+ME,Portland,0.02418
+NM,Albuquerque,0.02069
+NH,Manchester,0.02246
+UT,Salt Lake City,0.01847
+AZ,Chandler,0.03855
+FL,Miami,0.01887
+WY,Cheyenne,0.02631
+WA,Seattle,0.02007
+WA,Seattle,0.0143
+WA,Quincy,0.03835
+GA,Atlanta,0.05275
+OH,Cleveland,0.01942
+TN,Nashville,0.0243
+LA,New Orleans,0.02252
+NM,Albuquerque,0.005
+AR,Little Rock,0.02107
+UT,Salt Lake City,0.02233
+CT,Bridgeport,0.02413
+IA,Des Moines,0.01769
+CO,Denver,0.01933
+NJ,Newark,0.02073
+MO,Kansas City,0.01648
+RI,Providence,0.01824
+SC,Charleston,0.01736
+OH,New Albany,0.03582
+AK,Anchorage,0.01602
+TX,Houston,0.01747
+VA,Ashburn,0.03292
+OR,The Dalles,0.05255
+WA,Seattle,0.01301
+AZ,Chandler,0.05137
+AK,Anchorage,0.01674
+DE,Wilmington,0.02201
+AZ,Tucson,0.01619
+TN,Nashville,0.02143
+NV,Reno,0.04556
+SC,Charleston,0.01747
+IA,Des Moines,0.02216
+DE,Wilmington,0.01646
+OR,Prineville,0.02563
+DE,Wilmington,0.02058
+MN,Minneapolis,0.02303
+HI,Honolulu,0.01193
+OR,Portland,0.02232
+AK,Anchorage,0.01121
+IL,Chicago,0.01447
+GA,Atlanta,0.05061
+IA,Des Moines,0.01218
+NY,New York,0.02222
+OR,The Dalles,0.0382
+CO,Denver,0.01004
+TN,Nashville,0.02279
+MD,Baltimore,0.00866
+AZ,Mesa,0.03926
+AR,Little Rock,0.01155
+RI,Providence,0.01798
+TX,San Antonio,0.04867
+TX,Houston,0.01378
+DE,Wilmington,0.01634
+DE,Wilmington,0.01982
+AZ,Chandler,0.0391
+NH,Manchester,0.01899
+NM,Albuquerque,0.01584
+ND,Fargo,0.02018
+AK,Anchorage,0.02033
+TN,Nashville,0.01505
+NV,Reno,0.05917
+MD,Baltimore,0.02016
+OR,Prineville,0.0408
+PA,Philadelphia,0.01926
+WI,Milwaukee,0.02289
+OR,Prineville,0.04497
+FL,Miami,0.01377
+NJ,Newark,0.02007
+IA,Council Bluffs,0.06586
+MI,Detroit,0.01924
+VT,Burlington,0.01871
+KY,Louisville,0.00683
+NE,Omaha,0.02012
+KS,Wichita,0.02005
+AZ,Tucson,0.01192
+CA,Los Angeles,0.01848
+ND,Fargo,0.01999
+CT,Bridgeport,0.02296
+NY,New York,0.01829
+NE,Omaha,0.02372
+KY,Louisville,0.01454
+ND,Fargo,0.01998
+SD,Sioux Falls,0.0221
+NC,Forest City,0.04812
+AZ,Mesa,0.03474
+LA,New Orleans,0.01284
+AZ,Tucson,0.01847
+TX,San Antonio,0.05036
+MO,Kansas City,0.0187
+DE,Wilmington,0.01993
+OH,Cleveland,0.01681
+MD,Baltimore,0.02087
+NV,Las Vegas,0.02046
+OK,Oklahoma City,0.01455
+KS,Wichita,0.01884
+MN,Minneapolis,0.02171
+HI,Honolulu,0.01923
+RI,Providence,0.01718
+WA,Seattle,0.02133
+TN,Nashville,0.02349
+TN,Nashville,0.01114
+CA,Los Angeles,0.01336
+MO,Kansas City,0.01743
+WY,Cheyenne,0.0224
+SD,Sioux Falls,0.02452
+MI,Detroit,0.01599
+CT,Bridgeport,0.01701
+WI,Milwaukee,0.01441
+IN,Indianapolis,0.00967
+MN,Minneapolis,0.02521
+WA,Quincy,0.04399
+MT,Billings,0.02087
+AL,Birmingham,0.0191
+MI,Detroit,0.02336
+CT,Bridgeport,0.01512
+NY,New York,0.01428
+NY,New York,0.01071
+TN,Nashville,0.00871
+NY,New York,0.01695
+DE,Wilmington,0.01396
+AR,Little Rock,0.01065
+CO,Denver,0.0187
+MS,Jackson,0.01609
+PA,Philadelphia,0.02334
+NY,New York,0.01049
+KY,Louisville,0.02192
+OR,Portland,0.02198
+NY,New York,0.01456
+GA,Atlanta,0.06512
+WI,Milwaukee,0.00908
+IN,Indianapolis,0.01972
+OR,The Dalles,0.02831
+NV,Las Vegas,0.01765
+GA,Savannah,0.01471
+NH,Manchester,0.02437
+VA,Richmond,0.01375
+OH,New Albany,0.05875
+AR,Little Rock,0.01504
+GA,Atlanta,0.04815
+NY,New York,0.01651
+WV,Charleston,0.02095
+CT,Bridgeport,0.01999
+GA,Savannah,0.02157
