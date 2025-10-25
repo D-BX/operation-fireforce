@@ -158,18 +158,25 @@ function HousingChart({ state, currentPrice = 300000 }) {
           <div className="chart-stats">
             <div className="stat-box">
               <div className="stat-label">Starting Price (2025)</div>
-              <div className="stat-value">{formatCurrency(minValue)}</div>
+              <div className="stat-value">{formatCurrency(currentPrice)}</div>
               <div className="stat-year">{history[0].year}</div>
             </div>
             <div className="stat-box">
               <div className="stat-label">Projected Price (2030)</div>
-              <div className="stat-value">{formatCurrency(maxValue)}</div>
+              <div className="stat-value">
+                {prediction ? formatCurrency(prediction.nominal_price) : formatCurrency(maxValue)}
+              </div>
               <div className="stat-year">{history[history.length - 1].year}</div>
             </div>
             <div className="stat-box">
               <div className="stat-label">Total Projected Increase</div>
               <div className="stat-value">
-                {((maxValue - minValue) / minValue * 100).toFixed(1)}%
+                {prediction ?
+                  `${prediction.nominal_increase_pct.toFixed(1)}%` :
+                  currentPrice > 0 ?
+                    `${((maxValue - currentPrice) / currentPrice * 100).toFixed(1)}%` :
+                    'N/A'
+                }
               </div>
               <div className="stat-year">{history[0].year}-{history[history.length - 1].year}</div>
             </div>
@@ -246,12 +253,11 @@ function HousingChart({ state, currentPrice = 300000 }) {
 
           <div className="prediction-note">
             <p>
-              Based on historical data, housing prices in {getStateCode(state)} are expected to increase by{' '}
-              <strong>{prediction.normal_growth_rate.toFixed(1)}%</strong> annually under normal conditions.
-              However, with AI data center development, an additional{' '}
-              <strong>{prediction.hyperscale_effect_rate.toFixed(1)}%</strong> annual increase is projected,
-              resulting in a total growth rate of{' '}
-              <strong>{prediction.total_growth_rate.toFixed(1)}%</strong> per year.
+              <strong>Projected Impact:</strong> Housing prices in {getStateCode(state)} are projected to grow at{' '}
+              <strong>{prediction.total_growth_rate.toFixed(1)}%</strong> per year through 2030 with data center development.
+              This combines normal market growth of {prediction.normal_growth_rate.toFixed(1)}% annually plus an additional{' '}
+              {prediction.hyperscale_effect_rate.toFixed(1)}% annual increase from AI data center impact,
+              resulting in a total {prediction.nominal_increase_pct.toFixed(1)}% increase by {prediction.target_year}.
             </p>
           </div>
         </div>
