@@ -9,6 +9,7 @@ function Calculator() {
     currentPowerBill: '',
     currentWaterBill: '',
     householdSize: '',
+    currentHomeValue: '',
     uploadMethod: 'manual' // 'manual' or 'upload'
   });
   const [uploadedFiles, setUploadedFiles] = useState({
@@ -39,58 +40,133 @@ function Calculator() {
     }));
   };
 
+  const handleFileProcessing = async () => {
+    // Handle file uploads if in upload mode
+    if (inputs.uploadMethod === 'upload') {
+      const formData = new FormData();
+
+      if (uploadedFiles.powerBill) {
+        formData.append('file', uploadedFiles.powerBill);
+        formData.append('type', 'power');
+
+        try {
+          const response = await fetch('http://127.0.0.1:5002/api/calculator/parse-bill', {
+            method: 'POST',
+            body: formData
+          });
+
+          if (response.ok) {
+            const data = await response.json();
+            if (data.success) {
+              setInputs(prev => ({
+                ...prev,
+                currentPowerBill: data.data.amount.toString()
+              }));
+            }
+          }
+        } catch (error) {
+          console.error('Error parsing power bill:', error);
+        }
+      }
+
+      if (uploadedFiles.waterBill) {
+        const waterFormData = new FormData();
+        waterFormData.append('file', uploadedFiles.waterBill);
+        waterFormData.append('type', 'water');
+
+        try {
+          const response = await fetch('http://127.0.0.1:5002/api/calculator/parse-bill', {
+            method: 'POST',
+            body: waterFormData
+          });
+
+          if (response.ok) {
+            const data = await response.json();
+            if (data.success) {
+              setInputs(prev => ({
+                ...prev,
+                currentWaterBill: data.data.amount.toString()
+              }));
+            }
+          }
+        } catch (error) {
+          console.error('Error parsing water bill:', error);
+        }
+      }
+    }
+  };
+
   const handleCalculate = async (e) => {
     e.preventDefault();
     setLoading(true);
-    
-    setTimeout(() => {
-      const powerBill = parseFloat(inputs.currentPowerBill) || 0;
-      const waterBill = parseFloat(inputs.currentWaterBill) || 0;
-      const householdSize = parseInt(inputs.householdSize) || 1;
-      
-      const stateMultipliers = {
-        california: { power: 0.18, water: 0.12 },
-        texas: { power: 0.15, water: 0.08 },
-        virginia: { power: 0.20, water: 0.15 },
-        washington: { power: 0.16, water: 0.10 },
-        oregon: { power: 0.14, water: 0.09 },
-        nevada: { power: 0.22, water: 0.18 },
-        arizona: { power: 0.25, water: 0.20 },
-        utah: { power: 0.17, water: 0.11 },
-        colorado: { power: 0.19, water: 0.13 },
-        'new-mexico': { power: 0.21, water: 0.16 }
-      };
-      
-      const multipliers = stateMultipliers[inputs.state] || { power: 0.15, water: 0.10 };
-      
-      const powerIncrease = powerBill * multipliers.power;
-      const waterIncrease = waterBill * multipliers.water;
-      const totalIncrease = powerIncrease + waterIncrease;
-      const annualIncrease = totalIncrease * 12;
-      
-      setResults({
-        currentPowerBill: powerBill,
-        currentWaterBill: waterBill,
-        projectedPowerBill: powerBill + powerIncrease,
-        projectedWaterBill: waterBill + waterIncrease,
-        powerIncrease: powerIncrease,
-        waterIncrease: waterIncrease,
-        totalMonthlyIncrease: totalIncrease,
-        annualIncrease: annualIncrease,
-        householdSize: householdSize,
-        perPersonImpact: totalIncrease / householdSize,
+
+    try {
+      // Process uploaded files first if needed
+      await handleFileProcessing();
+
+      // Prepare request data
+      const requestData = {
         state: inputs.state,
-        dataCenterImpact: {
-          waterUsage: 2.3,
-          energyUsage: 18.7,
-          landUse: 12.3,
-          carbonFootprint: 8.7
-        }
+        currentPowerBill: parseFloat(inputs.currentPowerBill) || 0,
+        currentWaterBill: parseFloat(inputs.currentWaterBill) || 0,
+        householdSize: parseInt(inputs.householdSize) || 1,
+        currentHomeValue: inputs.currentHomeValue ? parseFloat(inputs.currentHomeValue) : null
+      };
+
+      // Call backend API
+      const response = await fetch('http://127.0.0.1:5002/api/calculator/predict', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(requestData)
       });
-      
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.error || 'Failed to calculate impact');
+      }
+
+      const result = await response.json();
+
+      if (result.success) {
+        const data = result.data;
+
+        // Transform backend response to match frontend expectations
+        setResults({
+          currentPowerBill: data.bills.current.power,
+          currentWaterBill: data.bills.current.water,
+          projectedPowerBill: data.bills.projected.power,
+          projectedWaterBill: data.bills.projected.water,
+          powerIncrease: data.bills.increase.power,
+          waterIncrease: data.bills.increase.water,
+          totalMonthlyIncrease: data.bills.increase.total_monthly,
+          annualIncrease: data.bills.increase.total_annual,
+          householdSize: data.household.size,
+          perPersonImpact: data.household.per_person_monthly_impact,
+          state: inputs.state,
+          stateCode: data.state,
+          dataCenterImpact: {
+            waterUsage: (data.environmental.water_usage_gallons_per_day / 1000000).toFixed(1),
+            energyUsage: data.environmental.energy_usage_gwh_per_year.toFixed(1),
+            landUse: data.environmental.land_use_acres.toFixed(1),
+            carbonFootprint: (data.environmental.carbon_footprint_tons_per_year / 1000).toFixed(1)
+          },
+          housing: data.housing,
+          electricityModel: data.electricity_model,
+          summary: data.summary
+        });
+
+        setActiveTab('results');
+      } else {
+        throw new Error('Invalid response from server');
+      }
+    } catch (error) {
+      console.error('Error calculating impact:', error);
+      alert(`Error: ${error.message}. Please check your inputs and try again.`);
+    } finally {
       setLoading(false);
-      setActiveTab('results');
-    }, 2000);
+    }
   };
 
   const resetCalculator = () => {
@@ -99,6 +175,7 @@ function Calculator() {
       currentPowerBill: '',
       currentWaterBill: '',
       householdSize: '',
+      currentHomeValue: '',
       uploadMethod: 'manual'
     });
     setUploadedFiles({ powerBill: null, waterBill: null });
@@ -204,16 +281,28 @@ function Calculator() {
                     </div>
                     <div className="form-group">
                       <label className="form-label">Household Size</label>
-                      <input 
-                        type="number" 
+                      <input
+                        type="number"
                         className="form-input"
                         value={inputs.householdSize}
                         onChange={(e) => setInputs({...inputs, householdSize: e.target.value})}
                         placeholder="4"
                         min="1"
-            required
-          />
-        </div>
+                        required
+                      />
+                    </div>
+                    <div className="form-group">
+                      <label className="form-label">Current Home Value (Optional)</label>
+                      <input
+                        type="number"
+                        className="form-input"
+                        value={inputs.currentHomeValue}
+                        onChange={(e) => setInputs({...inputs, currentHomeValue: e.target.value})}
+                        placeholder="350000"
+                        min="0"
+                      />
+                      <small className="form-hint">Enter to see housing market impact predictions</small>
+                    </div>
                   </div>
                 ) : (
                   <div className="form-section">
@@ -260,16 +349,28 @@ function Calculator() {
                     </div>
                     <div className="form-group">
                       <label className="form-label">Household Size</label>
-          <input 
-            type="number" 
+                      <input
+                        type="number"
                         className="form-input"
-            value={inputs.householdSize}
-            onChange={(e) => setInputs({...inputs, householdSize: e.target.value})}
+                        value={inputs.householdSize}
+                        onChange={(e) => setInputs({...inputs, householdSize: e.target.value})}
                         placeholder="4"
                         min="1"
-            required
-          />
-        </div>
+                        required
+                      />
+                    </div>
+                    <div className="form-group">
+                      <label className="form-label">Current Home Value (Optional)</label>
+                      <input
+                        type="number"
+                        className="form-input"
+                        value={inputs.currentHomeValue}
+                        onChange={(e) => setInputs({...inputs, currentHomeValue: e.target.value})}
+                        placeholder="350000"
+                        min="0"
+                      />
+                      <small className="form-hint">Enter to see housing market impact predictions</small>
+                    </div>
                   </div>
                 )}
 
@@ -367,12 +468,68 @@ function Calculator() {
                   </div>
                   <div className="env-stat">
                     <div className="env-content">
-                      <div className="env-value">{results.dataCenterImpact.carbonFootprint}T</div>
-                      <div className="env-label">CO2/Year</div>
+                      <div className="env-value">{results.dataCenterImpact.carbonFootprint}K</div>
+                      <div className="env-label">Tons CO2/Year</div>
                     </div>
                   </div>
                 </div>
               </div>
+
+              {results.housing && (
+                <div className="results-card card">
+                  <h3>Housing Market Impact (2025-2030 Projection)</h3>
+                  <div className="housing-impact">
+                    <div className="impact-stat">
+                      <div className="stat-value">${results.housing.projected_value_5yr.toLocaleString('en-US', {maximumFractionDigits: 0})}</div>
+                      <div className="stat-label">Projected Home Value (2030)</div>
+                    </div>
+                    <div className="impact-stat">
+                      <div className="stat-value">+${results.housing.value_increase.toLocaleString('en-US', {maximumFractionDigits: 0})}</div>
+                      <div className="stat-label">Expected Value Increase</div>
+                    </div>
+                    <div className="impact-stat">
+                      <div className="stat-value">{results.housing.total_growth_rate_pct.toFixed(1)}%/yr</div>
+                      <div className="stat-label">Total Growth Rate</div>
+                    </div>
+                    <div className="impact-breakdown">
+                      <div className="breakdown-item">
+                        <span className="breakdown-label">Normal Growth Rate</span>
+                        <span className="breakdown-value">{results.housing.normal_growth_rate_pct.toFixed(1)}%/yr</span>
+                      </div>
+                      <div className="breakdown-item">
+                        <span className="breakdown-label">Data Center Effect</span>
+                        <span className="breakdown-value highlighted">+{results.housing.hyperscale_effect_pct.toFixed(1)}%/yr</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {results.electricityModel && (
+                <div className="results-card card">
+                  <h3>Technical Details</h3>
+                  <div className="technical-details">
+                    <div className="detail-item">
+                      <span className="detail-label">Current Electricity Rate</span>
+                      <span className="detail-value">{results.electricityModel.observed_price_cents_per_kwh.toFixed(2)} ¢/kWh</span>
+                    </div>
+                    <div className="detail-item">
+                      <span className="detail-label">Projected Rate (with data center)</span>
+                      <span className="detail-value">{results.electricityModel.new_pred_cents_per_kwh.toFixed(2)} ¢/kWh</span>
+                    </div>
+                    <div className="detail-item">
+                      <span className="detail-label">Rate Increase</span>
+                      <span className="detail-value highlighted">+{results.electricityModel.delta_cents_per_kwh.toFixed(2)} ¢/kWh</span>
+                    </div>
+                    <div className="detail-item">
+                      <span className="detail-label">Impact Severity</span>
+                      <span className={`detail-value badge ${results.summary?.impact_level || 'moderate'}`}>
+                        {(results.summary?.impact_level || 'moderate').toUpperCase()}
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              )}
             </div>
 
             <div className="results-actions">
