@@ -3,6 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { getStateInfo } from '../services/geminiService';
 import { getStateRepresentatives } from '../services/representativesService';
+import HousingChart from '../components/HousingChart';
 
 function StateReport() {
   const { state } = useParams();
@@ -216,6 +217,11 @@ function StateReport() {
                   <p className="metric-description">Active data centers in state</p>
                 </div>
               </div>
+            </section>
+
+            <section className="housing-section">
+              <h2>Housing Market Impact</h2>
+              <HousingChart state={state} currentPrice={300000} />
             </section>
 
             <section className="graphs-section">
