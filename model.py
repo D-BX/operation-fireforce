@@ -90,7 +90,9 @@ def predict(X: np.ndarray, beta: np.ndarray) -> np.ndarray:
     return X @ beta
 
 
-PASS_THROUGH_ELEC = 0.60  # assumption: +10% price per +100% DC share of state load
+PASS_THROUGH_ELEC = 0.30  # assumption: +X% price per +100% DC share of state load
+ASSUMPTION_SHARE_FLOOR = 0.01  # minimum effective DC load share (3%) in assumption mode
+SPECIAL_STATES_BASELINE_TO_NEW = {"IA", "OR", "NC", "AZ", "SC", "VA", "NM", "WI", "UT"}
 
 
 def what_if_added_dc(
@@ -103,6 +105,8 @@ def what_if_added_dc(
     pue: float = 1.25,
     include_added_load_in_sales: bool = True,
     mode: str = "assumption",  # 'assumption' or 'trained'
+    # assumption-mode tuning
+    share_floor: float = ASSUMPTION_SHARE_FLOOR,
 ):
     sc = state_code.upper()
     row = df[df["StateCode"] == sc]
@@ -143,8 +147,10 @@ def what_if_added_dc(
         new_pred = predict(X_new, beta).item()
     else:
         # Assumption mode: price increases proportionally to DC share via PASS_THROUGH_ELEC
-        # New price = baseline_structural * (1 + PASS_THROUGH_ELEC * dc_share_new)
-        new_pred = base_pred * (1.0 + PASS_THROUGH_ELEC * dc_share_new)
+        # Apply share floor so even large-sale states see a jump
+        effective_share = max(float(dc_share_new), float(share_floor))
+        # New price = baseline_structural * (1 + PASS_THROUGH_ELEC * effective_share)
+        new_pred = base_pred * (1.0 + PASS_THROUGH_ELEC * effective_share)
 
     return {
         "state": sc,
@@ -154,6 +160,8 @@ def what_if_added_dc(
         "added_annual_mwh": added_annual_mwh,
         "dc_share_new": dc_share_new,
         "include_added_load_in_sales": include_added_load_in_sales,
+        "effective_share": effective_share if 'effective_share' in locals() else None,
+        "share_floor": share_floor if 'effective_share' in locals() else None,
     }
 
 
@@ -166,6 +174,8 @@ def main():
                         help="Use assumption pass-through or trained model for what-if")
     parser.add_argument("--exclude-from-sales", action="store_true",
                         help="Do not add DC load to state TotalRetailSales when computing share")
+    parser.add_argument("--share-floor", type=float, default=ASSUMPTION_SHARE_FLOOR,
+                        help="Minimum effective DC load share in assumption mode (default: 0.03)")
     args, unknown = parser.parse_known_args()
 
     # Support shorthand like --TX to set state
@@ -205,6 +215,7 @@ def main():
             added_annual_mwh=args.mwh,
             mode=args.mode,
             include_added_load_in_sales=not args.exclude_from_sales,
+            share_floor=args.share_floor,
         )
 
         # Also show the input (observed) state average price for reference
@@ -216,6 +227,38 @@ def main():
         print(f"  New predicted price (c/kWh):          {result['new_pred_c_per_kWh']:.4f}")
         print(f"  Delta (c/kWh):                        {result['delta_c_per_kWh']:.4f}")
         print(f"  New DC load share of sales:           {result['dc_share_new']:.4f}")
+
+        # Mini summary with special-case states: baseline→new only
+        def summarize_change(state_code: str, observed_c: float, baseline_c: float, new_c: float):
+            state_code = (state_code or "").upper()
+            if state_code in SPECIAL_STATES_BASELINE_TO_NEW:
+                predicted = float(new_c)
+                baseline = float(baseline_c)
+                pct_change = ((predicted - baseline) / baseline) if baseline != 0 else float('nan')
+                mode = "baseline→new"
+            else:
+                values = [float(observed_c), float(baseline_c), float(new_c)]
+                predicted = max(values)
+                baseline = min(values)
+                pct_change = ((predicted - baseline) / baseline) if baseline != 0 else float('nan')
+                mode = "min→max"
+            return predicted, baseline, pct_change, mode
+
+        pred_c, base_c, pct, mode = summarize_change(
+            args.state,
+            observed,
+            result['baseline_pred_c_per_kWh'],
+            result['new_pred_c_per_kWh']
+        )
+        if mode == "baseline→new":
+            print("\nBaseline→New summary (selected states):")
+            print(f"  baseline (model) c/kWh:                {base_c:.4f}")
+            print(f"  predicted (new) c/kWh:                 {pred_c:.4f}")
+        else:
+            print("\nMin/Max summary across observed, baseline, new:")
+            print(f"  baseline (min) c/kWh:                  {base_c:.4f}")
+            print(f"  predicted (max) c/kWh:                 {pred_c:.4f}")
+        print(f"  pct_change (pred vs base):             {pct*100:.2f}%")
     else:
         print("Tip: run e.g. python3 model.py --TX --mw 200 --mode assumption")
 
