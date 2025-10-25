@@ -412,10 +412,6 @@ function Calculator() {
                     <div className="bill-label">Current Monthly Bills</div>
                     <div className="bill-amount">${results.currentPowerBill + results.currentWaterBill}</div>
                   </div>
-                  <div className="bill-item projected">
-                    <div className="bill-label">Projected Monthly Bills</div>
-                    <div className="bill-amount">${(results.projectedPowerBill + results.projectedWaterBill).toFixed(2)}</div>
-                  </div>
                   <div className="bill-increase">
                     <div className="increase-label">Monthly Increase</div>
                     <div className="increase-amount">+${results.totalMonthlyIncrease.toFixed(2)}</div>
@@ -523,9 +519,16 @@ function Calculator() {
                     </div>
                     <div className="detail-item">
                       <span className="detail-label">Impact Severity</span>
-                      <span className={`detail-value badge ${results.summary?.impact_level || 'moderate'}`}>
-                        {(results.summary?.impact_level || 'moderate').toUpperCase()}
-                      </span>
+                      <div className="impact-severity">
+                        <span className={`detail-value badge ${results.summary?.impact_level || 'moderate'}`}>
+                          {(results.summary?.impact_level || 'moderate').toUpperCase()}
+                        </span>
+                        <div className="impact-indicator">
+                          <div className="impact-bar">
+                            <div className={`impact-fill ${results.summary?.impact_level || 'moderate'}`}></div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
